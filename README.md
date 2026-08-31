@@ -27,8 +27,10 @@ no build step in this repository — what is committed is what is served.
 every push to `claude/deploy-kgmcgc`, and can be run by hand from the Actions
 tab.
 
-**One-time setup:** Settings → Pages → Source → **GitHub Actions**. Without
-this the workflow run fails at the deploy step.
+The workflow enables Pages itself (`configure-pages` with `enablement: true`),
+so Settings → Pages does not need touching. If that step is ever refused for
+lack of permission, set Settings → Pages → Source → **GitHub Actions** by hand
+and re-run the workflow.
 
 ## Refreshing the site from a new snapshot
 

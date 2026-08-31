@@ -23,12 +23,16 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
+
+      # enablement turns Pages on and points it at Actions on the first run, so
+      # the deploy does not need Settings -> Pages set by hand.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
 
       # The site is a prerendered snapshot committed to the repo, so there is
       # nothing to build - the repository root is the artifact.
-      - uses: actions/configure-pages@v5
-
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
