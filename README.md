@@ -27,10 +27,14 @@ no build step in this repository — what is committed is what is served.
 every push to `claude/deploy-kgmcgc`, and can be run by hand from the Actions
 tab.
 
-The workflow enables Pages itself (`configure-pages` with `enablement: true`),
-so Settings → Pages does not need touching. If that step is ever refused for
-lack of permission, set Settings → Pages → Source → **GitHub Actions** by hand
-and re-run the workflow.
+**Required one-time setup:** Settings → Pages → Source → **GitHub Actions**.
+
+Until that is done the run fails at `configure-pages` with *Resource not
+accessible by integration* — the workflow asks to create the Pages site itself
+(`enablement: true`), but the automatic `GITHUB_TOKEN` is not allowed to turn
+Pages on, only a repository admin is. Once Pages is on, that step finds the
+existing site and the deploy proceeds; re-run the workflow from the Actions tab
+to publish without pushing again.
 
 ## Refreshing the site from a new snapshot
 
