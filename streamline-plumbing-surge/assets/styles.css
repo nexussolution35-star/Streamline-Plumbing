@@ -185,9 +185,6 @@ p+p{margin-top:1em}
 .checkset label{display:flex;gap:.55rem;align-items:center;min-height:44px;font-family:var(--ff-body);
   font-size:.92rem;text-transform:none;letter-spacing:0;color:#DCE4F2;margin:0}
 .checkset input{width:auto;accent-color:var(--lime)}
-.captcha{border:1px dashed #3A477E;border-radius:6px;padding:.9rem;display:flex;gap:.7rem;
-  align-items:center;color:#8FA0C2;font-family:var(--ff-spec);font-size:.8rem;background:#0F1530}
-.captcha .box{width:26px;height:26px;border:2px solid #5F6C93;border-radius:4px;flex:none}
 .formcard .btn{width:100%;margin-top:1.1rem}
 .formcard .fineprint{margin-top:.8rem;font-size:.78rem;color:#8FA0C2;font-family:var(--ff-spec)}
 .field input,.field select{min-height:48px}
@@ -473,7 +470,7 @@ figure.shot:hover img{transform:scale(1.04)}
 /* --- Hero badge row (Google + Instagram) --- */
 .badgerow{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem;margin:1.2rem 0 .4rem}
 .badgerow .gbadge{margin:0}
-.gbadge--ig .gbadge__txt strong{font-size:.86rem}
+.gbadge--fb .gbadge__txt strong{font-size:.86rem}
 
 .footmap{position:relative;display:block;margin-top:12px;border-radius:12px;overflow:hidden;line-height:0;border:1px solid rgba(255,255,255,.15)}
 .footmap img{width:100%;max-width:300px;height:auto;display:block}

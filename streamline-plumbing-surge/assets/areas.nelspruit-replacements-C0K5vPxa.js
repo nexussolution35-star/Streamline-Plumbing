@@ -47,7 +47,6 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
         <div class="field"><label for="zp">Postal code <span class="opt">Optional</span></label><input id="zp" name="postal" type="text" inputmode="numeric" autocomplete="postal-code" placeholder="1200"></div>
       </div>
     </details>
-    <div class="full captcha"><span class="box"></span> CAPTCHA — verification appears here</div>
   </div>
   <button class="btn btn-lime" type="button">Request my call back</button>
   <p class="fineprint">Placeholder form — submissions are not sent from this preview.</p>
