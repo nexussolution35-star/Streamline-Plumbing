@@ -17,12 +17,12 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
 </div></section>
 <section class="section"><div class="wrap split">
   <div class="copy">
-    <span class="eyebrow">Replacements — what we do</span>
+    <span class="eyebrow">Replacements, what we do</span>
     <h2>Done properly, guaranteed</h2>
-    <p>When a geyser bursts or a pipe gives in, waiting is expensive. We stock the common failure parts, replace with reputable brands, and leave you with a warranty — not a temporary patch.</p>
+    <p>When a geyser bursts or a pipe gives in, waiting is expensive. We stock the common failure parts, replace with reputable brands, and leave you with a warranty, not a temporary patch.</p>
     <ul class="ticklist"><li>Burst & end-of-life geyser replacements</li><li>Pressure control & safety valve replacements</li><li>Corroded galvanised pipe replacement</li><li>Tap, mixer & toilet replacements</li><li>Element & thermostat swaps</li><li>Like-for-like insurance replacements</li></ul>
     <h3 style="margin-top:2rem">By area</h3>
-    <figure class="shot"><img src="/assets/img/1-150l-solar-geyser-800.webp" alt="Streamline Plumbing work — 1 150l solar geyser" srcset="/assets/img/1-150l-solar-geyser-400.webp 400w, /assets/img/1-150l-solar-geyser-800.webp 800w" sizes="(max-width: 760px) 100vw, 760px" width="800" height="600" decoding="async" loading="lazy"></figure>
+    <figure class="shot"><img src="/assets/img/1-150l-solar-geyser-800.webp" alt="Streamline Plumbing work, 1 150l solar geyser" srcset="/assets/img/1-150l-solar-geyser-400.webp 400w, /assets/img/1-150l-solar-geyser-800.webp 800w" sizes="(max-width: 760px) 100vw, 760px" width="800" height="600" decoding="async" loading="lazy"></figure>
     <div class="areas"><a href="/areas/nelspruit-replacements">Replacements in Nelspruit</a><a href="/areas/white-river-replacements">Replacements in White River</a></div>
   </div>
   
@@ -32,7 +32,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
   <div class="f-grid">
     <div class="field full"><label for="fn">Your name</label><input id="fn" name="name" type="text" autocomplete="name" autocapitalize="words" enterkeyhint="next" placeholder="e.g. Thandi Mahlangu"></div>
     <div class="field full"><label for="ph">Phone number</label><input id="ph" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="082 000 0000"><span class="fieldhint">We call back on this number.</span></div>
-    <div class="field full"><label for="sv">What do you need?</label><select id="sv" name="service"><option value="">Choose one</option><option>Geyser or solar &mdash; repair or replace</option><option>Blocked drain or leak</option><option>New installation</option><option>Relocation</option><option>Maintenance / service plan</option><option>Insurance claim</option><option>Emergency / something else</option></select></div>
+    <div class="field full"><label for="sv">What do you need?</label><select id="sv" name="service"><option value="">Choose one</option><option>Geyser or solar, repair or replace</option><option>Blocked drain or leak</option><option>New installation</option><option>Relocation</option><option>Maintenance / service plan</option><option>Insurance claim</option><option>Emergency / something else</option></select></div>
     <details class="full moredetails"><summary>Add address &amp; email <span class="opt">Optional</span></summary>
       <div class="f-grid">
         <div class="field full"><label for="cb">Best time to call</label><select id="cb" name="callback"><option>As soon as possible</option><option>Morning</option><option>Afternoon</option><option>After 5pm</option></select></div>
@@ -45,16 +45,16 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
     </details>
   </div>
   <button class="btn btn-lime" type="button">Request my call back</button>
-  <p class="fineprint">Placeholder form — submissions are not sent from this preview.</p>
+  <p class="fineprint">Placeholder form. Submissions are not sent from this preview.</p>
 </div>
 </div></section>
 <div class="pipe" role="presentation"><span></span></div>
 <section class="section"><div class="wrap">
   <div class="center"><span class="eyebrow">How it works</span><h2>From call to fixed</h2></div>
   <div class="steps">
-      <div class="step"><h3>Tell us the problem</h3><p>Call or send the form — photos help. Emergencies jump the queue.</p></div>
+      <div class="step"><h3>Tell us the problem</h3><p>Call or send the form. Photos help. Emergencies jump the queue.</p></div>
       <div class="step"><h3>Straight quote</h3><p>A written quote before work starts. No call-out surprises.</p></div>
-      <div class="step"><h3>The work, done right</h3><p>Quality parts, pressure-tested, compliant — and we clean up.</p></div>
+      <div class="step"><h3>The work, done right</h3><p>Quality parts, pressure-tested, compliant, and we clean up.</p></div>
       <div class="step"><h3>Warranty &amp; report</h3><p>You get a workmanship warranty and paperwork insurers accept.</p></div></div>
 </div></section>
 <section class="ctaband"><div class="wrap">
@@ -75,7 +75,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
     <div><h3>Services</h3><ul><li><a href="/services/new-installations">New Installations</a></li><li><a href="/services/replacements">Replacements</a></li><li><a href="/services/relocations">Relocations</a></li><li><a href="/services/maintenance">Maintenance</a></li><li><a href="/services/insurance-claims">Insurance Claims</a></li></ul></div>
     <div><h3>Our location</h3>
       <p>Serving <a href="/areas/nelspruit">Nelspruit</a> and <a href="/areas/white-river">White River</a>, Mpumalanga.</p>
-      <span class="spec">EMERGENCIES — CALL 082 900 3389</span>
+      <span class="spec">EMERGENCIES, CALL 082 900 3389</span>
       <a class="footmap" href="https://maps.google.com/maps?ll=-25.49863,30.99247&z=15&t=m&hl=en&gl=ZA&mapclient=embed&cid=11333621513624779912" target="_blank" rel="noopener noreferrer" aria-label="Open Streamline Plumbing on Google Maps"><img src="/assets/img/map-gmaps-400w.webp" srcset="/assets/img/map-gmaps-400w.webp 400w, /assets/img/map-gmaps-800w.webp 800w, /assets/img/map-gmaps-1200w.webp 1200w" sizes="(max-width: 640px) 100vw, 300px" width="400" height="260" loading="lazy" decoding="async" alt="Map showing Streamline Plumbing location in Nelspruit, Mpumalanga"><span>Open in maps</span></a>
     </div>
   </div>

@@ -9,7 +9,7 @@ const formCard = `
   <div class="f-grid">
     <div class="field full"><label for="fn">Your name</label><input id="fn" name="name" type="text" autocomplete="name" autocapitalize="words" enterkeyhint="next" placeholder="e.g. Thandi Mahlangu"></div>
     <div class="field full"><label for="ph">Phone number</label><input id="ph" name="phone" type="tel" inputmode="tel" autocomplete="tel" enterkeyhint="next" placeholder="082 000 0000"><span class="fieldhint">We call back on this number.</span></div>
-    <div class="field full"><label for="sv">What do you need?</label><select id="sv" name="service"><option value="">Choose one</option><option>Geyser or solar &mdash; repair or replace</option><option>Blocked drain or leak</option><option>New installation</option><option>Relocation</option><option>Maintenance / service plan</option><option>Insurance claim</option><option>Emergency / something else</option></select></div>
+    <div class="field full"><label for="sv">What do you need?</label><select id="sv" name="service"><option value="">Choose one</option><option>Geyser or solar, repair or replace</option><option>Blocked drain or leak</option><option>New installation</option><option>Relocation</option><option>Maintenance / service plan</option><option>Insurance claim</option><option>Emergency / something else</option></select></div>
     <details class="full moredetails"><summary>Add address &amp; email <span class="opt">Optional</span></summary>
       <div class="f-grid">
         <div class="field full"><label for="cb">Best time to call</label><select id="cb" name="callback"><option>As soon as possible</option><option>Morning</option><option>Afternoon</option><option>After 5pm</option></select></div>
@@ -22,7 +22,7 @@ const formCard = `
     </details>
   </div>
   <button class="btn btn-lime" type="button">Request my call back</button>
-  <p class="fineprint">Placeholder form — submissions are not sent from this preview.</p>
+  <p class="fineprint">Placeholder form. Submissions are not sent from this preview.</p>
 </div>`;
 
 const html = `
@@ -37,12 +37,12 @@ const html = `
 </div></header>
 <main id="main">
 
-<!-- 1 — HERO + CONTACT FORM -->
+<!-- 1, HERO + CONTACT FORM -->
 <section class="hero hero--overlay hero--form"><div class="heroshot"><div class="drop" role="img" aria-label="Streamline water drop emblem"></div></div><div class="wrap hero__wrap">
   <div class="hero__content">
     <span class="eyebrow" style="color:var(--lime)">Nelspruit &amp; White River · Mpumalanga</span>
     <h1>Nelspruit plumbing <span class="accent">&amp; maintenance</span></h1>
-    <p class="lede">All geysers, solar controllers &amp; timers, heating pumps, main water lines and drains — for homes, businesses, estates and developments across the Lowveld.</p>
+    <p class="lede">All geysers, solar controllers &amp; timers, heating pumps, main water lines and drains. For homes, businesses, estates and developments across the Lowveld.</p>
     <ul class="checks"><li>New Installations</li><li>Replacements</li><li>Relocations</li><li>Maintenance</li><li>Insurance Claims</li></ul>
     <div class="badgerow">
     <a class="gbadge" href="https://www.google.com/search?q=Streamline+Plumbing+Nelspruit+reviews" target="_blank" rel="noopener" aria-label="Streamline Plumbing is rated 4.9 out of 5 on Google reviews">
@@ -55,12 +55,12 @@ const html = `
     </a>
     </div>
 
-    <span class="spec">HOURS — Mon – Fri 8:00am – 6:00pm</span>
+    <span class="spec">HOURS Mon – Fri 8:00am – 6:00pm</span>
   </div>
   ${formCard}
 </div></section>
 
-<!-- 2 — TRUST BADGES -->
+<!-- 2, TRUST BADGES -->
 <section class="section section--tight trustband"><div class="wrap">
   <div class="center"><span class="eyebrow">Why Lowveld homeowners trust us</span></div>
   <div class="trust">
@@ -71,7 +71,7 @@ const html = `
   </div>
 </div></section>
 
-<!-- 3 — GOOGLE REVIEWS -->
+<!-- 3, GOOGLE REVIEWS -->
 <section class="section reviewsec"><div class="wrap">
   <div class="center">
     <span class="eyebrow">Google reviews</span>
@@ -80,31 +80,31 @@ const html = `
   </div>
   <div class="reviews">
     <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="TM"></div><span class="stars" aria-hidden="true">★★★★★</span><p>Our 150L geyser burst on a Saturday morning. The team talked me through shutting off the main over the phone, arrived that same day and fitted the replacement properly. Honest quote, no surprises on the invoice.</p><cite><strong>Thandi Mahlangu</strong><span>Homeowner · Nelspruit</span></cite></blockquote>
-    <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="PB"></div><span class="stars" aria-hidden="true">★★★★★</span><p>They replaced a section of our main water line and sorted the whole insurance claim — photos, report and paperwork included. What could have been a stressful month took a few days.</p><cite><strong>Pieter Botha</strong><span>Insurance claim · White River</span></cite></blockquote>
+    <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="PB"></div><span class="stars" aria-hidden="true">★★★★★</span><p>They replaced a section of our main water line and sorted the whole insurance claim, photos, report and paperwork included. What could have been a stressful month took a few days.</p><cite><strong>Pieter Botha</strong><span>Insurance claim · White River</span></cite></blockquote>
     <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="LV"></div><span class="stars" aria-hidden="true">★★★★★</span><p>We have Streamline on a maintenance agreement for the estate. Blocked drains, leaking taps and gully repairs are handled quickly and the workmanship holds up season after season.</p><cite><strong>Lindiwe van Wyk</strong><span>Estate manager · Lowveld</span></cite></blockquote>
     <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="SN"></div><span class="stars" aria-hidden="true">★★★★★</span><p>Solar geyser and controller installed on a pitched roof, plus the timer set up and explained. Neat pipework and our electricity bill dropped noticeably.</p><cite><strong>Sipho Nkosi</strong><span>Solar installation · Nelspruit</span></cite></blockquote>
-    <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="AD"></div><span class="stars" aria-hidden="true">★★★★★</span><p>Full bathroom renovation — they relocated the shower and basin lines, tested everything and left the site clean. Great to deal with a plumber who works properly on a building site.</p><cite><strong>Anja du Plessis</strong><span>Renovation · White River</span></cite></blockquote>
-    <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="JM"></div><span class="stars" aria-hidden="true">★★★★★</span><p>A slow leak under the kitchen had lifted our tiles. Streamline traced it, repaired the pipe and restored the floor afterwards — one team instead of chasing a handyman as well.</p><cite><strong>Johan Meyer</strong><span>Leak repair · Nelspruit</span></cite></blockquote>
+    <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="AD"></div><span class="stars" aria-hidden="true">★★★★★</span><p>Full bathroom renovation. They relocated the shower and basin lines, tested everything and left the site clean. Great to deal with a plumber who works properly on a building site.</p><cite><strong>Anja du Plessis</strong><span>Renovation · White River</span></cite></blockquote>
+    <blockquote class="review"><div class="avatar" aria-hidden="true" data-initials="JM"></div><span class="stars" aria-hidden="true">★★★★★</span><p>A slow leak under the kitchen had lifted our tiles. Streamline traced it, repaired the pipe and restored the floor afterwards, one team instead of chasing a handyman as well.</p><cite><strong>Johan Meyer</strong><span>Leak repair · Nelspruit</span></cite></blockquote>
 
   </div>
 
   <p class="center mt"><a class="btn btn-ghost btn-ghost--dark" href="https://www.google.com/search?q=Streamline+Plumbing+Nelspruit+reviews" target="_blank" rel="noopener" aria-label="Read Streamline Plumbing reviews on Google">Read our reviews on Google</a></p>
 </div></section>
 
-<!-- 4 — EMERGENCY BAND -->
+<!-- 4, EMERGENCY BAND -->
 <section class="emergency"><div class="wrap">
   <p class="call">GOT A PLUMBING EMERGENCY? <a href="tel:+27829003389">082 900 3389</a></p>
   <p class="motto">Honest <em>–</em> Professional <em>–</em> Affordable</p>
 </div></section>
 
-<!-- 5 — WHO WE ARE -->
+<!-- 5, WHO WE ARE -->
 <section class="section"><div class="wrap whowe">
-  <figure class="shot"><img src="/assets/img/team-800.webp" alt="The Streamline Plumbing team — professional plumbers ready to help in Nelspruit and White River" srcset="/assets/img/team-400.webp 400w, /assets/img/team-800.webp 800w, /assets/img/team-1200.webp 1200w" sizes="(max-width: 760px) 100vw, 760px" width="1200" height="686" decoding="async" loading="lazy"></figure>
+  <figure class="shot"><img src="/assets/img/team-800.webp" alt="The Streamline Plumbing team, professional plumbers ready to help in Nelspruit and White River" srcset="/assets/img/team-400.webp 400w, /assets/img/team-800.webp 800w, /assets/img/team-1200.webp 1200w" sizes="(max-width: 760px) 100vw, 760px" width="1200" height="686" decoding="async" loading="lazy"></figure>
   <div class="copy">
     <span class="eyebrow">Who we are</span>
     <h2>A Lowveld family team that gets the job done</h2>
     <p>At Streamline Plumbing, we know the importance of fixing every leak and keeping your plumbing systems maintained. We fix and install all types of drains, geysers and taps for homes, businesses, estates and developments.</p>
-    <p>Our growing team of plumbers and assistants work on all types of maintenance, repairs and installations — and you can count on us to get the job done on time. Real experience on building sites makes us the preferred plumbers for various estates in and around Nelspruit.</p>
+    <p>Our growing team of plumbers and assistants work on all types of maintenance, repairs and installations, and you can count on us to get the job done on time. Real experience on building sites makes us the preferred plumbers for various estates in and around Nelspruit.</p>
     <div class="cta-row">
       <a class="btn btn-lime" href="/about-us">More about us</a>
       <a class="btn btn-ghost btn-ghost--dark" href="/contact-us">Talk to our team</a>
@@ -116,18 +116,18 @@ const html = `
   <span class="eyebrow">Streamline plumbers in Nelspruit</span>
   <h2>We get the job done!</h2>
   <div class="showreel">
-    <video class="showreel-vid" src="/assets/video/streamline-showreel.mp4" poster="/assets/video/streamline-showreel-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Streamline Plumbing showreel — installations, replacements, relocations, maintenance and insurance work across Nelspruit and White River"></video>
+    <video class="showreel-vid" src="/assets/video/streamline-showreel.mp4" poster="/assets/video/streamline-showreel-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Streamline Plumbing showreel, installations, replacements, relocations, maintenance and insurance work across Nelspruit and White River"></video>
   </div>
   <div class="pillars">
-      <div class="pillar"><div class="glyph"><img src="/assets/img/blocked-drain-800.webp" alt="Blocked drain being cleared during an emergency call-out" srcset="/assets/img/blocked-drain-400.webp 400w, /assets/img/blocked-drain-800.webp 800w" sizes="(max-width: 760px) 100vw, 760px" width="800" height="600" decoding="async" loading="lazy"></div><h3>Emergencies</h3><p>Burst geysers, flooding and blocked drains — call us and we'll talk you through making it safe while we're on the way.</p></div>
+      <div class="pillar"><div class="glyph"><img src="/assets/img/blocked-drain-800.webp" alt="Blocked drain being cleared during an emergency call-out" srcset="/assets/img/blocked-drain-400.webp 400w, /assets/img/blocked-drain-800.webp 800w" sizes="(max-width: 760px) 100vw, 760px" width="800" height="600" decoding="async" loading="lazy"></div><h3>Emergencies</h3><p>Burst geysers, flooding and blocked drains. Call us and we'll talk you through making it safe while we're on the way.</p></div>
       <div class="pillar"><div class="glyph"><img src="/assets/img/nelspruit-plumbers-service-level-agreement-800.webp" alt="Planned plumbing maintenance work on a Nelspruit property" srcset="/assets/img/nelspruit-plumbers-service-level-agreement-400.webp 400w, /assets/img/nelspruit-plumbers-service-level-agreement-800.webp 800w, /assets/img/nelspruit-plumbers-service-level-agreement-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 760px" width="1024" height="682" decoding="async" loading="lazy"></div><h3>Maintenance</h3><p>Planned servicing and SLAs for homes, estates and businesses. Small leaks fixed before they become big damage.</p></div>
-      <div class="pillar"><div class="glyph"><img src="/assets/img/new-shower-800.webp" alt="Newly installed shower after a bathroom renovation" srcset="/assets/img/new-shower-400.webp 400w, /assets/img/new-shower-800.webp 800w" sizes="(max-width: 760px) 100vw, 760px" width="800" height="600" decoding="async" loading="lazy"></div><h3>Renovations</h3><p>New installations, relocations and replacements for bathrooms, kitchens and full builds — planned, routed and tested.</p></div></div>
+      <div class="pillar"><div class="glyph"><img src="/assets/img/new-shower-800.webp" alt="Newly installed shower after a bathroom renovation" srcset="/assets/img/new-shower-400.webp 400w, /assets/img/new-shower-800.webp 800w" sizes="(max-width: 760px) 100vw, 760px" width="800" height="600" decoding="async" loading="lazy"></div><h3>Renovations</h3><p>New installations, relocations and replacements for bathrooms, kitchens and full builds, planned, routed and tested.</p></div></div>
 
 </div></section>
 
 <div class="pipe" role="presentation"><span></span></div>
 
-<!-- 6 — SERVICES / WHY US -->
+<!-- 6, SERVICES / WHY US -->
 <section class="section"><div class="wrap">
   <div class="copy">
     <span class="eyebrow">Why the Lowveld calls us</span>
@@ -137,33 +137,33 @@ const html = `
       <h3>We also do renovations and repairs</h3>
       <p style="margin-top:.6rem">Often a leak can do more damage than what you see on the surface. If your tiles are lifting, floors are water damaged or paving is pulling up, you don't need to call the handyman when you can call us. As part of our plumbing services we offer renovation work to restore your home after the flood.</p>
       <h3 style="margin-top:1.8rem">Talk to our team today</h3>
-      <p style="margin-top:.6rem">Get a quote when you next need plumbing in Nelspruit or White River. We'll be there to halt the flow! Helpful emergency guidance when you need it — we'll save you from a water-wasting crisis.</p>
+      <p style="margin-top:.6rem">Get a quote when you next need plumbing in Nelspruit or White River. We'll be there to halt the flow! Helpful emergency guidance when you need it. We'll save you from a water-wasting crisis.</p>
     </div>
   </div>
 </div></section>
 
-<!-- 7 — RECENT WORK -->
+<!-- 7, RECENT WORK -->
 <section class="section--tight section"><div class="wrap">
   <div class="center"><span class="eyebrow">Recent work</span><h2>On site across the Lowveld</h2></div>
   <div class="g-strip">
-      <a class="g-tile g-1 has-photo" href="/gallery" style="--photo:url('/assets/img/1-150l-solar-geyser-800.webp')"><span>Solar geyser install — pitched roof</span></a>
+      <a class="g-tile g-1 has-photo" href="/gallery" style="--photo:url('/assets/img/1-150l-solar-geyser-800.webp')"><span>Solar geyser install, pitched roof</span></a>
       <a class="g-tile g-2 has-photo" href="/gallery" style="--photo:url('/assets/img/replacing-section-of-main-line-800.webp')"><span>Main line replacement</span></a>
-      <a class="g-tile g-3 has-photo" href="/gallery" style="--photo:url('/assets/img/new-shower-800.webp')"><span>Bathroom re-route — renovation</span></a></div>
+      <a class="g-tile g-3 has-photo" href="/gallery" style="--photo:url('/assets/img/new-shower-800.webp')"><span>Bathroom re-route, renovation</span></a></div>
 </div></section>
 
 <div class="pipe" role="presentation"><span></span></div>
 
-<!-- 8 — BLOG -->
+<!-- 8, BLOG -->
 <section class="section"><div class="wrap">
   <div class="center"><span class="eyebrow">From the workshop</span><h2>Read our latest advice below</h2></div>
   <div class="cards">
-      <div class="card"><div class="thumb"><img src="/assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-800.webp" alt="Streamline Plumbing — 5 bits of advice from our plumbers in Nelspruit" srcset="/assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-400.webp 400w, /assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-800.webp 800w, /assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 760px" width="1024" height="736" decoding="async" loading="lazy"></div><div class="band"></div><div class="body">
-        <span class="spec">ADVICE FROM OUR PLUMBERS</span><h3>5 bits of advice from our plumbers in Nelspruit</h3><p>Small habits — knowing your main stop tap, listening for running water at night, servicing your geyser — save Lowveld homeowners thousands. Here's what our team wishes every client knew.</p>
+      <div class="card"><div class="thumb"><img src="/assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-800.webp" alt="Streamline Plumbing, 5 bits of advice from our plumbers in Nelspruit" srcset="/assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-400.webp 400w, /assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-800.webp 800w, /assets/img/there-are-many-reasons-to-hire-plumbers-in-nelspruit-1024.webp 1024w" sizes="(max-width: 760px) 100vw, 760px" width="1024" height="736" decoding="async" loading="lazy"></div><div class="band"></div><div class="body">
+        <span class="spec">ADVICE FROM OUR PLUMBERS</span><h3>5 bits of advice from our plumbers in Nelspruit</h3><p>Small habits, knowing your main stop tap, listening for running water at night, servicing your geyser, save Lowveld homeowners thousands. Here's what our team wishes every client knew.</p>
         <a class="more" aria-label="Read more: 5 bits of advice from our plumbers in Nelspruit" href="/blog">Read more →</a></div></div>
-      <div class="card"><div class="thumb"><img src="/assets/img/home-plumber-how-we-work-2-700.webp" alt="Streamline Plumbing — General plumbing maintenance advice for Lowveld homes" srcset="/assets/img/home-plumber-how-we-work-2-400.webp 400w, /assets/img/home-plumber-how-we-work-2-700.webp 700w" sizes="(max-width: 760px) 100vw, 760px" width="700" height="252" decoding="async" loading="lazy"></div><div class="band"></div><div class="body">
-        <span class="spec">MAINTENANCE</span><h3>General plumbing maintenance advice for Lowveld homes</h3><p>A network of water pipes runs in and around your house, and most of it will carry on working for a lifetime — with a little maintenance at the right times. Where to start.</p>
+      <div class="card"><div class="thumb"><img src="/assets/img/home-plumber-how-we-work-2-700.webp" alt="Streamline Plumbing, General plumbing maintenance advice for Lowveld homes" srcset="/assets/img/home-plumber-how-we-work-2-400.webp 400w, /assets/img/home-plumber-how-we-work-2-700.webp 700w" sizes="(max-width: 760px) 100vw, 760px" width="700" height="252" decoding="async" loading="lazy"></div><div class="band"></div><div class="body">
+        <span class="spec">MAINTENANCE</span><h3>General plumbing maintenance advice for Lowveld homes</h3><p>A network of water pipes runs in and around your house, and most of it will carry on working for a lifetime, with a little maintenance at the right times. Where to start.</p>
         <a class="more" aria-label="Read more: General plumbing maintenance advice for Lowveld homes" href="/blog">Read more →</a></div></div>
-      <div class="card"><div class="thumb"><img src="/assets/img/blog-picture-800.webp" alt="Streamline Plumbing — Keeping things under control until the plumber arrives" srcset="/assets/img/blog-picture-400.webp 400w, /assets/img/blog-picture-800.webp 800w, /assets/img/blog-picture-960.webp 960w" sizes="(max-width: 760px) 100vw, 760px" width="960" height="1440" decoding="async" loading="lazy"></div><div class="band"></div><div class="body">
+      <div class="card"><div class="thumb"><img src="/assets/img/blog-picture-800.webp" alt="Streamline Plumbing, Keeping things under control until the plumber arrives" srcset="/assets/img/blog-picture-400.webp 400w, /assets/img/blog-picture-800.webp 800w, /assets/img/blog-picture-960.webp 960w" sizes="(max-width: 760px) 100vw, 760px" width="960" height="1440" decoding="async" loading="lazy"></div><div class="band"></div><div class="body">
         <span class="spec">EMERGENCIES</span><h3>Keeping things under control until the plumber arrives</h3><p>A burst pipe at midnight doesn't have to become a flooded home. Shut off the main, kill the geyser's power, and follow these steps while our team is on the way.</p>
         <a class="more" aria-label="Read more: Keeping things under control until the plumber arrives" href="/blog">Read more →</a></div></div></div>
 </div></section>
@@ -179,7 +179,7 @@ const html = `
     <div><h3>Services</h3><ul><li><a href="/services/new-installations">New Installations</a></li><li><a href="/services/replacements">Replacements</a></li><li><a href="/services/relocations">Relocations</a></li><li><a href="/services/maintenance">Maintenance</a></li><li><a href="/services/insurance-claims">Insurance Claims</a></li></ul></div>
     <div><h3>Our location</h3>
       <p>Serving <a href="/areas/nelspruit">Nelspruit</a> and <a href="/areas/white-river">White River</a>, Mpumalanga.</p>
-      <span class="spec">EMERGENCIES — CALL 082 900 3389</span>
+      <span class="spec">EMERGENCIES, CALL 082 900 3389</span>
       <a class="footmap" href="https://maps.google.com/maps?ll=-25.49863,30.99247&z=15&t=m&hl=en&gl=ZA&mapclient=embed&cid=11333621513624779912" target="_blank" rel="noopener noreferrer" aria-label="Open Streamline Plumbing on Google Maps"><img src="/assets/img/map-gmaps-400w.webp" srcSet="/assets/img/map-gmaps-400w.webp 400w, /assets/img/map-gmaps-800w.webp 800w, /assets/img/map-gmaps-1200w.webp 1200w" sizes="(max-width: 640px) 100vw, 300px" width="400" height="260" loading="lazy" decoding="async" alt="Map showing Streamline Plumbing location in Nelspruit, Mpumalanga" /><span>Open in maps</span></a>
     </div>
   </div>
