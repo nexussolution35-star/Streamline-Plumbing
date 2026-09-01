@@ -7,6 +7,25 @@ what you ship.
 
 Every host below serves the same folder. Pick one.
 
+## Currently live
+
+**https://streamline-plumbing.surge.sh** — deployed to Surge. The domain is pinned in
+`streamline-plumbing-surge/CNAME`, so a bare `surge ./streamline-plumbing-surge`
+redeploys to the same place.
+
+Two things about that URL specifically:
+
+- **It is not indexable.** Surge serves its own `User-agent: * / Disallow: /` on
+  every `*.surge.sh` subdomain and ignores the `robots.txt` in the export. That
+  is deliberate on Surge's part — preview subdomains stay out of search results.
+  Indexing needs a custom domain.
+- **Assets are not cached.** Surge ignores `_headers`, so `/assets/*` comes back
+  `max-age=0, must-revalidate` instead of the year-long cache the file asks for.
+  Netlify and Cloudflare Pages both honour it.
+
+Neither affects whether the site works — all 24 routes serve, and the deployed
+bytes match this repo.
+
 ## Before the first deploy: stamp the domain
 
 The export ships root-relative `<link rel="canonical">`, `og:url`, JSON-LD `url`
@@ -17,8 +36,11 @@ the domain you are deploying to:
 node scripts/set-site-url.mjs https://streamlineplumbing.co.za
 ```
 
-It is idempotent, and the Surge workflow runs it automatically. Commit the result
-if you deploy by hand.
+Re-run it any time the domain changes — it moves URLs from the old origin onto
+the new one, and does nothing if they already match. The export in this repo is
+currently stamped with the Surge URL above; switching to
+`streamlineplumbing.co.za` means re-running it with that origin, redeploying, and
+committing the result. The Surge workflow runs it automatically.
 
 ## Surge
 
@@ -78,6 +100,13 @@ and leave the build command empty.
 
 Surge ignores `_redirects` and `_headers`; the others ignore `200.html`. Keeping
 all four means the same folder deploys anywhere.
+
+One host difference worth knowing: Surge 301s `/about-us` to `/about-us/`, while
+Netlify and Cloudflare serve the un-slashed path directly. The canonical tags and
+sitemap use the un-slashed form, so on Surge they point one redirect hop away from
+the final URL. Search engines follow it, so this is a tidiness issue rather than a
+broken one — but if you stay on Surge long term, it is worth emitting trailing
+slashes.
 
 ## Rebuilding the export
 

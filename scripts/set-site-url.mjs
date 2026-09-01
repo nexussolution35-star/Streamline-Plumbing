@@ -7,8 +7,9 @@
 //
 //   node scripts/set-site-url.mjs https://streamlineplumbing.co.za
 //
-// It is idempotent — values already absolute are left alone — so it is safe to
-// re-run after replacing the export with a fresh build.
+// Re-run it whenever the domain changes or the export is rebuilt: values already
+// pointing at the given origin are left alone, and values carrying a different
+// origin are moved onto the new one.
 
 import { readFileSync, writeFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
@@ -21,15 +22,21 @@ if (!origin || !/^https?:\/\/[^/]+$/.test(origin)) {
 
 const root = "streamline-plumbing-surge";
 
-// Only rewrite values that are root-relative paths: a leading "/" not followed
-// by another "/" (which would be a protocol-relative URL already pointing out).
-const abs = (path) => origin + (path === "/" ? "/" : path);
+// A value is either a root-relative path ("/about-us") or an absolute URL this
+// script stamped earlier; both are normalised onto the current origin. VALUE
+// matches those two shapes only, so protocol-relative and off-site URLs — the
+// Google Maps link in the footer, schema.org context URLs — are left alone.
+const VALUE = String.raw`(?:https?:\/\/[^\/"'<\s]+)?\/(?!\/)`;
+const rule = (before, after) =>
+  new RegExp(`(${before})(${VALUE}[^"'<\\s]*)(${after})`, "g");
+
+const abs = (value) => origin + value.replace(/^https?:\/\/[^/]+/, "");
 const rules = [
-  [/(<link[^>]*rel="canonical"[^>]*href=")(\/(?!\/)[^"]*)(")/g],
-  [/(<meta[^>]*property="og:url"[^>]*content=")(\/(?!\/)[^"]*)(")/g],
-  [/("(?:url|image)":")(\/(?!\/)[^"]*)(")/g], // JSON-LD
-  [/(<loc>)(\/(?!\/)[^<]*)(<\/loc>)/g], // sitemap.xml
-  [/(Sitemap: )(\/(?!\/)\S*)()/g], // robots.txt
+  rule('<link[^>]*rel="canonical"[^>]*href="', '"'),
+  rule('<meta[^>]*property="og:url"[^>]*content="', '"'),
+  rule('"(?:url|image)":"', '"'), // JSON-LD
+  rule("<loc>", "</loc>"), // sitemap.xml
+  rule("Sitemap: ", ""), // robots.txt
 ];
 
 const walk = (dir) =>
@@ -44,10 +51,11 @@ for (const path of walk(root)) {
   if (!/\.(html|xml|txt)$/.test(path)) continue;
   const before = readFileSync(path, "utf8");
   let after = before;
-  for (const [re] of rules) {
-    after = after.replace(re, (_m, head, path, tail) => {
-      changedValues++;
-      return head + abs(path) + tail;
+  for (const re of rules) {
+    after = after.replace(re, (match, head, value, tail) => {
+      const stamped = head + abs(value) + tail;
+      if (stamped !== match) changedValues++;
+      return stamped;
     });
   }
   if (after !== before) {
@@ -59,5 +67,5 @@ for (const path of walk(root)) {
 console.log(
   changedValues
     ? `Stamped ${origin} into ${changedValues} value(s) across ${changedFiles} file(s).`
-    : `Nothing to change — no root-relative URLs left under ${root}/.`,
+    : `Nothing to change — every URL under ${root}/ already points at ${origin}.`,
 );

@@ -28,8 +28,12 @@ bun run build
 
 ## Deploy
 
+Live at **https://streamline-plumbing.surge.sh**.
+
 The committed export in `streamline-plumbing-surge/` is what ships, so a deploy is
-an upload rather than a build:
+an upload rather than a build — `surge ./streamline-plumbing-surge` on its own
+redeploys to that domain, since it is pinned in the export's `CNAME`. For a
+different domain:
 
 ```sh
 node scripts/set-site-url.mjs https://your-domain.co.za   # once per domain
