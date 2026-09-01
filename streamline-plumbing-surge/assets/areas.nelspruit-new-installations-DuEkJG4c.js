@@ -55,7 +55,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
 <section class="ctaband"><div class="wrap">
   <h2>Why wait? Schedule an appointment now!</h2>
   <p>Call 082 900 3389 for emergencies in Nelspruit, or send the form and we'll get back to you as soon as possible.</p>
- 
+  <a class="btn btn-lime" href="/contact-us">Get a Quote</a>
 </div></section>
 
 

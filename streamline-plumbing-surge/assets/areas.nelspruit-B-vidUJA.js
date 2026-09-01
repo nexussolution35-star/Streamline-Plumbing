@@ -33,7 +33,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
 <section class="ctaband"><div class="wrap">
   <h2>Need a plumber in Nelspruit?</h2>
   <p>Call 082 900 3389 or book online — we'll confirm a time and get it sorted.</p>
- 
+  <a class="btn btn-lime" href="/contact-us">Get a Quote</a>
 </div></section>
 
 
