@@ -125,7 +125,7 @@ p+p{margin-top:1em}
 
 /* hero full-bleed photo overlay */
 .hero--overlay .heroshot{position:absolute;inset:0;min-height:auto;border-radius:0;
-  background-image:url('/assets/img/150l-kwikot-solar-geyser-with-one-flat-panel-on-pitched-roof-thermosiphon-1024.webp');
+  background-image:url('/assets/img/hero-signage-van-680.webp');
   background-size:cover;background-position:center;z-index:0}
 .hero--overlay .heroshot::before{content:"";position:absolute;inset:0;
   background:linear-gradient(105deg,rgba(15,21,48,.92) 0%,rgba(15,21,48,.78) 45%,rgba(20,32,80,.45) 100%)}
