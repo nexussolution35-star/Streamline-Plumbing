@@ -72,7 +72,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
     <div><h3>Our location</h3>
       <p>Serving <a href="/areas/nelspruit">Nelspruit</a> and <a href="/areas/white-river">White River</a>, Mpumalanga.</p>
       <span class="spec">EMERGENCIES — CALL 082 900 3389</span>
-      <a class="footmap" href="https://maps.google.com/maps?ll=-25.49863,30.99247&z=15&t=m&hl=en&gl=ZA&mapclient=embed&cid=11333621513624779912" target="_blank" rel="noopener noreferrer" aria-label="Open Streamline Plumbing on Google Maps"><img src="/assets/img/map-location-400.webp" srcset="/assets/img/map-location-400.webp 400w, /assets/img/map-location-800.webp 800w" sizes="280px" width="400" height="210" loading="lazy" decoding="async" alt="Map showing Streamline Plumbing location in Nelspruit, Mpumalanga"><span>Open in maps</span></a>
+      <a class="footmap" href="https://maps.google.com/maps?ll=-25.49863,30.99247&z=15&t=m&hl=en&gl=ZA&mapclient=embed&cid=11333621513624779912" target="_blank" rel="noopener noreferrer" aria-label="Open Streamline Plumbing on Google Maps"><img src="/assets/img/map-gmaps-400w.webp" srcset="/assets/img/map-gmaps-400w.webp 400w, /assets/img/map-gmaps-800w.webp 800w, /assets/img/map-gmaps-1200w.webp 1200w" sizes="(max-width: 640px) 100vw, 300px" width="400" height="260" loading="lazy" decoding="async" alt="Map showing Streamline Plumbing location in Nelspruit, Mpumalanga"><span>Open in maps</span></a>
     </div>
   </div>
   <div class="legal"><span>© 2026 STREAMLINE PLUMBING (PTY) LTD. ALL RIGHTS RESERVED.</span><span>NELSPRUIT · WHITE RIVER</span></div>

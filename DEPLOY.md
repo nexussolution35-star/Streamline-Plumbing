@@ -108,6 +108,19 @@ the final URL. Search engines follow it, so this is a tidiness issue rather than
 broken one — but if you stay on Surge long term, it is worth emitting trailing
 slashes.
 
+## Editing the export by hand
+
+The route chunks under `assets/` are content-hashed, and editing one in place
+leaves its filename claiming a hash the contents no longer match. That is
+harmless on Surge, which serves everything `max-age=0`, but on Netlify or
+Cloudflare the year-long `immutable` cache means a returning visitor keeps the
+old chunk indefinitely. So after hand-editing the export, rebuild before moving
+to either of those hosts — a rebuild regenerates the hashes and the caches break
+naturally.
+
+Anything changed in the export must also be changed in `src/`, or the next
+rebuild reintroduces it.
+
 ## Rebuilding the export
 
 The export was generated from this source with a prerender pass. To regenerate:
