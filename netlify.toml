@@ -1,0 +1,6 @@
+# The site is deployed from the prerendered export in streamline-plumbing-surge/,
+# not built on Netlify — there is no build command on purpose.
+# Caching and the SPA fallback live in _headers and _redirects inside that folder.
+[build]
+  publish = "streamline-plumbing-surge"
+  command = ""

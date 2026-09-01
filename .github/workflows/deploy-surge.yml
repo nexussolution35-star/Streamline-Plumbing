@@ -1,0 +1,70 @@
+name: Deploy to Surge
+
+# Publishes the prerendered export in streamline-plumbing-surge/ to Surge.
+# Nothing is built here — the export is committed, so a deploy is a plain upload.
+#
+# Required repository secrets:
+#   SURGE_LOGIN  - the email address on the Surge account
+#   SURGE_TOKEN  - from `surge token`
+# Required repository variable:
+#   SURGE_DOMAIN - e.g. streamline-plumbing.surge.sh or streamlineplumbing.co.za
+
+on:
+  workflow_dispatch:
+    inputs:
+      domain:
+        description: "Surge domain to publish to (defaults to the SURGE_DOMAIN variable)"
+        required: false
+        type: string
+  push:
+    branches: [main]
+    paths:
+      - "streamline-plumbing-surge/**"
+      - ".github/workflows/deploy-surge.yml"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Resolve target domain
+        id: target
+        env:
+          INPUT_DOMAIN: ${{ inputs.domain }}
+          VAR_DOMAIN: ${{ vars.SURGE_DOMAIN }}
+        run: |
+          DOMAIN="${INPUT_DOMAIN:-$VAR_DOMAIN}"
+          if [ -z "$DOMAIN" ]; then
+            echo "::error::No domain to deploy to. Set the SURGE_DOMAIN repository variable or pass one when running the workflow."
+            exit 1
+          fi
+          echo "domain=$DOMAIN" >> "$GITHUB_OUTPUT"
+
+      - name: Check credentials
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: |
+          if [ -z "$SURGE_LOGIN" ] || [ -z "$SURGE_TOKEN" ]; then
+            echo "::error::SURGE_LOGIN and SURGE_TOKEN repository secrets are required. Run \`surge token\` locally to get one."
+            exit 1
+          fi
+
+      # Canonical tags, og:url, JSON-LD and the sitemap ship as root-relative
+      # paths; search engines need absolute URLs, so stamp the live origin in.
+      - name: Stamp absolute URLs into the export
+        run: node scripts/set-site-url.mjs "https://${{ steps.target.outputs.domain }}"
+
+      - name: Publish
+        env:
+          SURGE_LOGIN: ${{ secrets.SURGE_LOGIN }}
+          SURGE_TOKEN: ${{ secrets.SURGE_TOKEN }}
+        run: npx --yes surge ./streamline-plumbing-surge "${{ steps.target.outputs.domain }}"
+
+      - name: Summary
+        run: echo "Deployed to https://${{ steps.target.outputs.domain }}" >> "$GITHUB_STEP_SUMMARY"
