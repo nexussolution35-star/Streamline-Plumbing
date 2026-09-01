@@ -56,7 +56,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
     <div>
       <a class="logo" href="/"><img src="/assets/logo-696.webp" alt="Streamline Plumbing logo" srcset="/assets/logo-400.webp 400w, /assets/logo-696.webp 696w" sizes="120px" width="696" height="198" decoding="async" loading="lazy"></a>
       <span class="spec">TEL 082 900 3389<br>info@streamlineplumbing.co.za<br>Mon – Fri 8:00am – 6:00pm</span>
-      <p class="mt" style="font-size:.92rem">Honest, professional and affordable plumbing for homes, businesses, estates and developments across Nelspruit and White River.</p>
+      <p class="mt" style="font-size:.98rem">Honest, professional and affordable plumbing for homes, businesses, estates and developments across Nelspruit and White River.</p>
     </div>
     <div><h2 class="h3">Services</h2><ul><li><a href="/services/new-installations">New Installations</a></li><li><a href="/services/replacements">Replacements</a></li><li><a href="/services/relocations">Relocations</a></li><li><a href="/services/maintenance">Maintenance</a></li><li><a href="/services/insurance-claims">Insurance Claims</a></li></ul></div>
     <div><h2 class="h3">Our location</h2>
