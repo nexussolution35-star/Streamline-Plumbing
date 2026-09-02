@@ -82,7 +82,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
 
   </div>
 
-  <p class="center mt"><a class="btn btn-ghost btn-ghost--dark" href="https://www.google.com/search?q=Streamline+Plumbing+Nelspruit+reviews" target="_blank" rel="noopener" aria-label="Read Streamline Plumbing reviews on Google">Read our reviews on Google</a></p>
+  <p class="center mt"><a class="btn btn-lime" href="https://www.google.com/search?q=Streamline+Plumbing+Nelspruit+reviews" target="_blank" rel="noopener" aria-label="Read Streamline Plumbing reviews on Google">Read our reviews on Google</a></p>
 </div></section>
 
 <!-- 4, EMERGENCY BAND -->
@@ -101,7 +101,7 @@ import{t as e}from"./StaticPage-BK0ip2Uj.js";import{i as t}from"./index-DHf3sWOg
     <p>Our growing team of plumbers and assistants work on all types of maintenance, repairs and installations, and you can count on us to get the job done on time. Real experience on building sites makes us the preferred plumbers for various estates in and around Nelspruit.</p>
     <div class="cta-row">
       <a class="btn btn-lime" href="/about-us">More about us</a>
-      <a class="btn btn-ghost btn-ghost--dark" href="/contact-us">Talk to our team</a>
+      <a class="btn btn-lime" href="/contact-us">Talk to our team</a>
     </div>
   </div>
 </div></section>

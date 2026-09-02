@@ -67,8 +67,6 @@ p+p{margin-top:1em}
 .btn-lime{background:var(--lime);color:var(--ink-2)}
 .btn-lime:hover{background:#A2D22B}
 .btn-navy{background:var(--ink);color:#fff}
-.btn-ghost{border-color:rgba(255,255,255,.55);color:#fff;background:transparent}
-.btn-ghost:hover{border-color:var(--lime);color:var(--lime)}
 
 /* --- topbar --- */
 .topbar{background:var(--ink-2);color:#CBD6E4;font-family:var(--ff-spec);font-size:.8rem}
