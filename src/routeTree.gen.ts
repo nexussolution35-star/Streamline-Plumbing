@@ -10,33 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as ContactUsRouteImport } from './routes/contact-us'
-import { Route as DownloadsRouteImport } from './routes/downloads'
-import { Route as GlobalReachRouteImport } from './routes/global-reach'
+import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
-import { Route as SitemapRouteImport } from './routes/sitemap'
-import { Route as HomeHistoryRouteImport } from './routes/home/history'
-import { Route as HomeOurBehavioursRouteImport } from './routes/home/our-behaviours'
-import { Route as HomeOurPurposeRouteImport } from './routes/home/our-purpose'
-import { Route as HomeOwnershipRouteImport } from './routes/home/ownership'
-import { Route as MarketsAluminiumIndustryRouteImport } from './routes/markets/aluminium-industry'
-import { Route as MarketsLithiumIonBatteriesRouteImport } from './routes/markets/lithium-ion-batteries'
-import { Route as MarketsSpecialityAlloysRouteImport } from './routes/markets/speciality-alloys'
-import { Route as MarketsSteelIndustryRouteImport } from './routes/markets/steel-industry'
-import { Route as MarketsWeldingRodCoredWireIndustryRouteImport } from './routes/markets/welding-rod-cored-wire-industry'
-import { Route as ProductsElectrolyticManganeseMetalEmmRouteImport } from './routes/products/electrolytic-manganese-metal-emm'
-import { Route as ProductsHighPurityManganeseSulphateMonohydrateHpMsmRouteImport } from './routes/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-import { Route as WhatWeDoElectrolyticManganeseMetalEmmRefineryRouteImport } from './routes/what-we-do/electrolytic-manganese-metal-emm-refinery'
-import { Route as WhatWeDoHpmsmProjectRouteImport } from './routes/what-we-do/hpmsm-project'
-import { Route as WhatWeDoMmcCombinedOperationsRouteImport } from './routes/what-we-do/mmc-combined-operations'
-import { Route as SustainabilityOurEsgVisionIndexRouteImport } from './routes/sustainability/our-esg-vision/index'
-import { Route as SustainabilityOurEsgVisionEnvironmentalRouteImport } from './routes/sustainability/our-esg-vision/environmental'
-import { Route as SustainabilityOurEsgVisionGovernanceAndEthicsRouteImport } from './routes/sustainability/our-esg-vision/governance-and-ethics'
-import { Route as SustainabilityOurEsgVisionSocialRouteImport } from './routes/sustainability/our-esg-vision/social'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as BlogIndexRouteImport } from './routes/blog/index'
+import { Route as BlogChoosingAnEmmGradeRouteImport } from './routes/blog/choosing-an-emm-grade'
+import { Route as BlogReadingACertificateOfAnalysisRouteImport } from './routes/blog/reading-a-certificate-of-analysis'
+import { Route as BlogWhySeleniumFreeMattersRouteImport } from './routes/blog/why-selenium-free-matters'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactUsRoute = ContactUsRouteImport.update({
@@ -44,14 +35,9 @@ const ContactUsRoute = ContactUsRouteImport.update({
   path: '/contact-us',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DownloadsRoute = DownloadsRouteImport.update({
-  id: '/downloads',
-  path: '/downloads',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const GlobalReachRoute = GlobalReachRouteImport.update({
-  id: '/global-reach',
-  path: '/global-reach',
+const GalleryRoute = GalleryRouteImport.update({
+  id: '/gallery',
+  path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -59,298 +45,121 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
-const SitemapRoute = SitemapRouteImport.update({
-  id: '/sitemap',
-  path: '/sitemap',
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HomeHistoryRoute = HomeHistoryRouteImport.update({
-  id: '/home/history',
-  path: '/home/history',
+const BlogIndexRoute = BlogIndexRouteImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HomeOurBehavioursRoute = HomeOurBehavioursRouteImport.update({
-  id: '/home/our-behaviours',
-  path: '/home/our-behaviours',
+const BlogChoosingAnEmmGradeRoute = BlogChoosingAnEmmGradeRouteImport.update({
+  id: '/blog/choosing-an-emm-grade',
+  path: '/blog/choosing-an-emm-grade',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HomeOurPurposeRoute = HomeOurPurposeRouteImport.update({
-  id: '/home/our-purpose',
-  path: '/home/our-purpose',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HomeOwnershipRoute = HomeOwnershipRouteImport.update({
-  id: '/home/ownership',
-  path: '/home/ownership',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketsAluminiumIndustryRoute =
-  MarketsAluminiumIndustryRouteImport.update({
-    id: '/markets/aluminium-industry',
-    path: '/markets/aluminium-industry',
+const BlogReadingACertificateOfAnalysisRoute =
+  BlogReadingACertificateOfAnalysisRouteImport.update({
+    id: '/blog/reading-a-certificate-of-analysis',
+    path: '/blog/reading-a-certificate-of-analysis',
     getParentRoute: () => rootRouteImport,
   } as any)
-const MarketsLithiumIonBatteriesRoute =
-  MarketsLithiumIonBatteriesRouteImport.update({
-    id: '/markets/lithium-ion-batteries',
-    path: '/markets/lithium-ion-batteries',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const MarketsSpecialityAlloysRoute = MarketsSpecialityAlloysRouteImport.update({
-  id: '/markets/speciality-alloys',
-  path: '/markets/speciality-alloys',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketsSteelIndustryRoute = MarketsSteelIndustryRouteImport.update({
-  id: '/markets/steel-industry',
-  path: '/markets/steel-industry',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const MarketsWeldingRodCoredWireIndustryRoute =
-  MarketsWeldingRodCoredWireIndustryRouteImport.update({
-    id: '/markets/welding-rod-cored-wire-industry',
-    path: '/markets/welding-rod-cored-wire-industry',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProductsElectrolyticManganeseMetalEmmRoute =
-  ProductsElectrolyticManganeseMetalEmmRouteImport.update({
-    id: '/products/electrolytic-manganese-metal-emm',
-    path: '/products/electrolytic-manganese-metal-emm',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute =
-  ProductsHighPurityManganeseSulphateMonohydrateHpMsmRouteImport.update({
-    id: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm',
-    path: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute =
-  WhatWeDoElectrolyticManganeseMetalEmmRefineryRouteImport.update({
-    id: '/what-we-do/electrolytic-manganese-metal-emm-refinery',
-    path: '/what-we-do/electrolytic-manganese-metal-emm-refinery',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const WhatWeDoHpmsmProjectRoute = WhatWeDoHpmsmProjectRouteImport.update({
-  id: '/what-we-do/hpmsm-project',
-  path: '/what-we-do/hpmsm-project',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const WhatWeDoMmcCombinedOperationsRoute =
-  WhatWeDoMmcCombinedOperationsRouteImport.update({
-    id: '/what-we-do/mmc-combined-operations',
-    path: '/what-we-do/mmc-combined-operations',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SustainabilityOurEsgVisionIndexRoute =
-  SustainabilityOurEsgVisionIndexRouteImport.update({
-    id: '/sustainability/our-esg-vision/',
-    path: '/sustainability/our-esg-vision/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SustainabilityOurEsgVisionEnvironmentalRoute =
-  SustainabilityOurEsgVisionEnvironmentalRouteImport.update({
-    id: '/sustainability/our-esg-vision/environmental',
-    path: '/sustainability/our-esg-vision/environmental',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SustainabilityOurEsgVisionGovernanceAndEthicsRoute =
-  SustainabilityOurEsgVisionGovernanceAndEthicsRouteImport.update({
-    id: '/sustainability/our-esg-vision/governance-and-ethics',
-    path: '/sustainability/our-esg-vision/governance-and-ethics',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const SustainabilityOurEsgVisionSocialRoute =
-  SustainabilityOurEsgVisionSocialRouteImport.update({
-    id: '/sustainability/our-esg-vision/social',
-    path: '/sustainability/our-esg-vision/social',
+const BlogWhySeleniumFreeMattersRoute =
+  BlogWhySeleniumFreeMattersRouteImport.update({
+    id: '/blog/why-selenium-free-matters',
+    path: '/blog/why-selenium-free-matters',
     getParentRoute: () => rootRouteImport,
   } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/contact-us': typeof ContactUsRoute
-  '/downloads': typeof DownloadsRoute
-  '/global-reach': typeof GlobalReachRoute
+  '/gallery': typeof GalleryRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/sitemap': typeof SitemapRoute
-  '/home/history': typeof HomeHistoryRoute
-  '/home/our-behaviours': typeof HomeOurBehavioursRoute
-  '/home/our-purpose': typeof HomeOurPurposeRoute
-  '/home/ownership': typeof HomeOwnershipRoute
-  '/markets/aluminium-industry': typeof MarketsAluminiumIndustryRoute
-  '/markets/lithium-ion-batteries': typeof MarketsLithiumIonBatteriesRoute
-  '/markets/speciality-alloys': typeof MarketsSpecialityAlloysRoute
-  '/markets/steel-industry': typeof MarketsSteelIndustryRoute
-  '/markets/welding-rod-cored-wire-industry': typeof MarketsWeldingRodCoredWireIndustryRoute
-  '/products/electrolytic-manganese-metal-emm': typeof ProductsElectrolyticManganeseMetalEmmRoute
-  '/products/high-purity-manganese-sulphate-monohydrate-hp-msm': typeof ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute
-  '/what-we-do/electrolytic-manganese-metal-emm-refinery': typeof WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute
-  '/what-we-do/hpmsm-project': typeof WhatWeDoHpmsmProjectRoute
-  '/what-we-do/mmc-combined-operations': typeof WhatWeDoMmcCombinedOperationsRoute
-  '/sustainability/our-esg-vision/environmental': typeof SustainabilityOurEsgVisionEnvironmentalRoute
-  '/sustainability/our-esg-vision/governance-and-ethics': typeof SustainabilityOurEsgVisionGovernanceAndEthicsRoute
-  '/sustainability/our-esg-vision/social': typeof SustainabilityOurEsgVisionSocialRoute
-  '/sustainability/our-esg-vision/': typeof SustainabilityOurEsgVisionIndexRoute
+  '/services': typeof ServicesRoute
+  '/blog/choosing-an-emm-grade': typeof BlogChoosingAnEmmGradeRoute
+  '/blog/reading-a-certificate-of-analysis': typeof BlogReadingACertificateOfAnalysisRoute
+  '/blog/why-selenium-free-matters': typeof BlogWhySeleniumFreeMattersRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/contact-us': typeof ContactUsRoute
-  '/downloads': typeof DownloadsRoute
-  '/global-reach': typeof GlobalReachRoute
+  '/gallery': typeof GalleryRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/sitemap': typeof SitemapRoute
-  '/home/history': typeof HomeHistoryRoute
-  '/home/our-behaviours': typeof HomeOurBehavioursRoute
-  '/home/our-purpose': typeof HomeOurPurposeRoute
-  '/home/ownership': typeof HomeOwnershipRoute
-  '/markets/aluminium-industry': typeof MarketsAluminiumIndustryRoute
-  '/markets/lithium-ion-batteries': typeof MarketsLithiumIonBatteriesRoute
-  '/markets/speciality-alloys': typeof MarketsSpecialityAlloysRoute
-  '/markets/steel-industry': typeof MarketsSteelIndustryRoute
-  '/markets/welding-rod-cored-wire-industry': typeof MarketsWeldingRodCoredWireIndustryRoute
-  '/products/electrolytic-manganese-metal-emm': typeof ProductsElectrolyticManganeseMetalEmmRoute
-  '/products/high-purity-manganese-sulphate-monohydrate-hp-msm': typeof ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute
-  '/what-we-do/electrolytic-manganese-metal-emm-refinery': typeof WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute
-  '/what-we-do/hpmsm-project': typeof WhatWeDoHpmsmProjectRoute
-  '/what-we-do/mmc-combined-operations': typeof WhatWeDoMmcCombinedOperationsRoute
-  '/sustainability/our-esg-vision/environmental': typeof SustainabilityOurEsgVisionEnvironmentalRoute
-  '/sustainability/our-esg-vision/governance-and-ethics': typeof SustainabilityOurEsgVisionGovernanceAndEthicsRoute
-  '/sustainability/our-esg-vision/social': typeof SustainabilityOurEsgVisionSocialRoute
-  '/sustainability/our-esg-vision': typeof SustainabilityOurEsgVisionIndexRoute
+  '/services': typeof ServicesRoute
+  '/blog/choosing-an-emm-grade': typeof BlogChoosingAnEmmGradeRoute
+  '/blog/reading-a-certificate-of-analysis': typeof BlogReadingACertificateOfAnalysisRoute
+  '/blog/why-selenium-free-matters': typeof BlogWhySeleniumFreeMattersRoute
+  '/blog': typeof BlogIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/contact-us': typeof ContactUsRoute
-  '/downloads': typeof DownloadsRoute
-  '/global-reach': typeof GlobalReachRoute
+  '/gallery': typeof GalleryRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
-  '/sitemap': typeof SitemapRoute
-  '/home/history': typeof HomeHistoryRoute
-  '/home/our-behaviours': typeof HomeOurBehavioursRoute
-  '/home/our-purpose': typeof HomeOurPurposeRoute
-  '/home/ownership': typeof HomeOwnershipRoute
-  '/markets/aluminium-industry': typeof MarketsAluminiumIndustryRoute
-  '/markets/lithium-ion-batteries': typeof MarketsLithiumIonBatteriesRoute
-  '/markets/speciality-alloys': typeof MarketsSpecialityAlloysRoute
-  '/markets/steel-industry': typeof MarketsSteelIndustryRoute
-  '/markets/welding-rod-cored-wire-industry': typeof MarketsWeldingRodCoredWireIndustryRoute
-  '/products/electrolytic-manganese-metal-emm': typeof ProductsElectrolyticManganeseMetalEmmRoute
-  '/products/high-purity-manganese-sulphate-monohydrate-hp-msm': typeof ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute
-  '/what-we-do/electrolytic-manganese-metal-emm-refinery': typeof WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute
-  '/what-we-do/hpmsm-project': typeof WhatWeDoHpmsmProjectRoute
-  '/what-we-do/mmc-combined-operations': typeof WhatWeDoMmcCombinedOperationsRoute
-  '/sustainability/our-esg-vision/environmental': typeof SustainabilityOurEsgVisionEnvironmentalRoute
-  '/sustainability/our-esg-vision/governance-and-ethics': typeof SustainabilityOurEsgVisionGovernanceAndEthicsRoute
-  '/sustainability/our-esg-vision/social': typeof SustainabilityOurEsgVisionSocialRoute
-  '/sustainability/our-esg-vision/': typeof SustainabilityOurEsgVisionIndexRoute
+  '/services': typeof ServicesRoute
+  '/blog/choosing-an-emm-grade': typeof BlogChoosingAnEmmGradeRoute
+  '/blog/reading-a-certificate-of-analysis': typeof BlogReadingACertificateOfAnalysisRoute
+  '/blog/why-selenium-free-matters': typeof BlogWhySeleniumFreeMattersRoute
+  '/blog/': typeof BlogIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/about'
     | '/contact-us'
-    | '/downloads'
-    | '/global-reach'
+    | '/gallery'
     | '/privacy-policy'
-    | '/sitemap'
-    | '/home/history'
-    | '/home/our-behaviours'
-    | '/home/our-purpose'
-    | '/home/ownership'
-    | '/markets/aluminium-industry'
-    | '/markets/lithium-ion-batteries'
-    | '/markets/speciality-alloys'
-    | '/markets/steel-industry'
-    | '/markets/welding-rod-cored-wire-industry'
-    | '/products/electrolytic-manganese-metal-emm'
-    | '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-    | '/what-we-do/electrolytic-manganese-metal-emm-refinery'
-    | '/what-we-do/hpmsm-project'
-    | '/what-we-do/mmc-combined-operations'
-    | '/sustainability/our-esg-vision/environmental'
-    | '/sustainability/our-esg-vision/governance-and-ethics'
-    | '/sustainability/our-esg-vision/social'
-    | '/sustainability/our-esg-vision/'
+    | '/services'
+    | '/blog/choosing-an-emm-grade'
+    | '/blog/reading-a-certificate-of-analysis'
+    | '/blog/why-selenium-free-matters'
+    | '/blog/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/about'
     | '/contact-us'
-    | '/downloads'
-    | '/global-reach'
+    | '/gallery'
     | '/privacy-policy'
-    | '/sitemap'
-    | '/home/history'
-    | '/home/our-behaviours'
-    | '/home/our-purpose'
-    | '/home/ownership'
-    | '/markets/aluminium-industry'
-    | '/markets/lithium-ion-batteries'
-    | '/markets/speciality-alloys'
-    | '/markets/steel-industry'
-    | '/markets/welding-rod-cored-wire-industry'
-    | '/products/electrolytic-manganese-metal-emm'
-    | '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-    | '/what-we-do/electrolytic-manganese-metal-emm-refinery'
-    | '/what-we-do/hpmsm-project'
-    | '/what-we-do/mmc-combined-operations'
-    | '/sustainability/our-esg-vision/environmental'
-    | '/sustainability/our-esg-vision/governance-and-ethics'
-    | '/sustainability/our-esg-vision/social'
-    | '/sustainability/our-esg-vision'
+    | '/services'
+    | '/blog/choosing-an-emm-grade'
+    | '/blog/reading-a-certificate-of-analysis'
+    | '/blog/why-selenium-free-matters'
+    | '/blog'
   id:
     | '__root__'
     | '/'
+    | '/about'
     | '/contact-us'
-    | '/downloads'
-    | '/global-reach'
+    | '/gallery'
     | '/privacy-policy'
-    | '/sitemap'
-    | '/home/history'
-    | '/home/our-behaviours'
-    | '/home/our-purpose'
-    | '/home/ownership'
-    | '/markets/aluminium-industry'
-    | '/markets/lithium-ion-batteries'
-    | '/markets/speciality-alloys'
-    | '/markets/steel-industry'
-    | '/markets/welding-rod-cored-wire-industry'
-    | '/products/electrolytic-manganese-metal-emm'
-    | '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-    | '/what-we-do/electrolytic-manganese-metal-emm-refinery'
-    | '/what-we-do/hpmsm-project'
-    | '/what-we-do/mmc-combined-operations'
-    | '/sustainability/our-esg-vision/environmental'
-    | '/sustainability/our-esg-vision/governance-and-ethics'
-    | '/sustainability/our-esg-vision/social'
-    | '/sustainability/our-esg-vision/'
+    | '/services'
+    | '/blog/choosing-an-emm-grade'
+    | '/blog/reading-a-certificate-of-analysis'
+    | '/blog/why-selenium-free-matters'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   ContactUsRoute: typeof ContactUsRoute
-  DownloadsRoute: typeof DownloadsRoute
-  GlobalReachRoute: typeof GlobalReachRoute
+  GalleryRoute: typeof GalleryRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
-  SitemapRoute: typeof SitemapRoute
-  HomeHistoryRoute: typeof HomeHistoryRoute
-  HomeOurBehavioursRoute: typeof HomeOurBehavioursRoute
-  HomeOurPurposeRoute: typeof HomeOurPurposeRoute
-  HomeOwnershipRoute: typeof HomeOwnershipRoute
-  MarketsAluminiumIndustryRoute: typeof MarketsAluminiumIndustryRoute
-  MarketsLithiumIonBatteriesRoute: typeof MarketsLithiumIonBatteriesRoute
-  MarketsSpecialityAlloysRoute: typeof MarketsSpecialityAlloysRoute
-  MarketsSteelIndustryRoute: typeof MarketsSteelIndustryRoute
-  MarketsWeldingRodCoredWireIndustryRoute: typeof MarketsWeldingRodCoredWireIndustryRoute
-  ProductsElectrolyticManganeseMetalEmmRoute: typeof ProductsElectrolyticManganeseMetalEmmRoute
-  ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute: typeof ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute
-  WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute: typeof WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute
-  WhatWeDoHpmsmProjectRoute: typeof WhatWeDoHpmsmProjectRoute
-  WhatWeDoMmcCombinedOperationsRoute: typeof WhatWeDoMmcCombinedOperationsRoute
-  SustainabilityOurEsgVisionEnvironmentalRoute: typeof SustainabilityOurEsgVisionEnvironmentalRoute
-  SustainabilityOurEsgVisionGovernanceAndEthicsRoute: typeof SustainabilityOurEsgVisionGovernanceAndEthicsRoute
-  SustainabilityOurEsgVisionSocialRoute: typeof SustainabilityOurEsgVisionSocialRoute
-  SustainabilityOurEsgVisionIndexRoute: typeof SustainabilityOurEsgVisionIndexRoute
+  ServicesRoute: typeof ServicesRoute
+  BlogChoosingAnEmmGradeRoute: typeof BlogChoosingAnEmmGradeRoute
+  BlogReadingACertificateOfAnalysisRoute: typeof BlogReadingACertificateOfAnalysisRoute
+  BlogWhySeleniumFreeMattersRoute: typeof BlogWhySeleniumFreeMattersRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -362,6 +171,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact-us': {
       id: '/contact-us'
       path: '/contact-us'
@@ -369,18 +185,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactUsRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/downloads': {
-      id: '/downloads'
-      path: '/downloads'
-      fullPath: '/downloads'
-      preLoaderRoute: typeof DownloadsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/global-reach': {
-      id: '/global-reach'
-      path: '/global-reach'
-      fullPath: '/global-reach'
-      preLoaderRoute: typeof GlobalReachRouteImport
+    '/gallery': {
+      id: '/gallery'
+      path: '/gallery'
+      fullPath: '/gallery'
+      preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -390,137 +199,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/sitemap': {
-      id: '/sitemap'
-      path: '/sitemap'
-      fullPath: '/sitemap'
-      preLoaderRoute: typeof SitemapRouteImport
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home/history': {
-      id: '/home/history'
-      path: '/home/history'
-      fullPath: '/home/history'
-      preLoaderRoute: typeof HomeHistoryRouteImport
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog/'
+      preLoaderRoute: typeof BlogIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home/our-behaviours': {
-      id: '/home/our-behaviours'
-      path: '/home/our-behaviours'
-      fullPath: '/home/our-behaviours'
-      preLoaderRoute: typeof HomeOurBehavioursRouteImport
+    '/blog/choosing-an-emm-grade': {
+      id: '/blog/choosing-an-emm-grade'
+      path: '/blog/choosing-an-emm-grade'
+      fullPath: '/blog/choosing-an-emm-grade'
+      preLoaderRoute: typeof BlogChoosingAnEmmGradeRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home/our-purpose': {
-      id: '/home/our-purpose'
-      path: '/home/our-purpose'
-      fullPath: '/home/our-purpose'
-      preLoaderRoute: typeof HomeOurPurposeRouteImport
+    '/blog/reading-a-certificate-of-analysis': {
+      id: '/blog/reading-a-certificate-of-analysis'
+      path: '/blog/reading-a-certificate-of-analysis'
+      fullPath: '/blog/reading-a-certificate-of-analysis'
+      preLoaderRoute: typeof BlogReadingACertificateOfAnalysisRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home/ownership': {
-      id: '/home/ownership'
-      path: '/home/ownership'
-      fullPath: '/home/ownership'
-      preLoaderRoute: typeof HomeOwnershipRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets/aluminium-industry': {
-      id: '/markets/aluminium-industry'
-      path: '/markets/aluminium-industry'
-      fullPath: '/markets/aluminium-industry'
-      preLoaderRoute: typeof MarketsAluminiumIndustryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets/lithium-ion-batteries': {
-      id: '/markets/lithium-ion-batteries'
-      path: '/markets/lithium-ion-batteries'
-      fullPath: '/markets/lithium-ion-batteries'
-      preLoaderRoute: typeof MarketsLithiumIonBatteriesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets/speciality-alloys': {
-      id: '/markets/speciality-alloys'
-      path: '/markets/speciality-alloys'
-      fullPath: '/markets/speciality-alloys'
-      preLoaderRoute: typeof MarketsSpecialityAlloysRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets/steel-industry': {
-      id: '/markets/steel-industry'
-      path: '/markets/steel-industry'
-      fullPath: '/markets/steel-industry'
-      preLoaderRoute: typeof MarketsSteelIndustryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/markets/welding-rod-cored-wire-industry': {
-      id: '/markets/welding-rod-cored-wire-industry'
-      path: '/markets/welding-rod-cored-wire-industry'
-      fullPath: '/markets/welding-rod-cored-wire-industry'
-      preLoaderRoute: typeof MarketsWeldingRodCoredWireIndustryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/electrolytic-manganese-metal-emm': {
-      id: '/products/electrolytic-manganese-metal-emm'
-      path: '/products/electrolytic-manganese-metal-emm'
-      fullPath: '/products/electrolytic-manganese-metal-emm'
-      preLoaderRoute: typeof ProductsElectrolyticManganeseMetalEmmRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/products/high-purity-manganese-sulphate-monohydrate-hp-msm': {
-      id: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-      path: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-      fullPath: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'
-      preLoaderRoute: typeof ProductsHighPurityManganeseSulphateMonohydrateHpMsmRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/what-we-do/electrolytic-manganese-metal-emm-refinery': {
-      id: '/what-we-do/electrolytic-manganese-metal-emm-refinery'
-      path: '/what-we-do/electrolytic-manganese-metal-emm-refinery'
-      fullPath: '/what-we-do/electrolytic-manganese-metal-emm-refinery'
-      preLoaderRoute: typeof WhatWeDoElectrolyticManganeseMetalEmmRefineryRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/what-we-do/hpmsm-project': {
-      id: '/what-we-do/hpmsm-project'
-      path: '/what-we-do/hpmsm-project'
-      fullPath: '/what-we-do/hpmsm-project'
-      preLoaderRoute: typeof WhatWeDoHpmsmProjectRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/what-we-do/mmc-combined-operations': {
-      id: '/what-we-do/mmc-combined-operations'
-      path: '/what-we-do/mmc-combined-operations'
-      fullPath: '/what-we-do/mmc-combined-operations'
-      preLoaderRoute: typeof WhatWeDoMmcCombinedOperationsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sustainability/our-esg-vision/': {
-      id: '/sustainability/our-esg-vision/'
-      path: '/sustainability/our-esg-vision'
-      fullPath: '/sustainability/our-esg-vision/'
-      preLoaderRoute: typeof SustainabilityOurEsgVisionIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sustainability/our-esg-vision/environmental': {
-      id: '/sustainability/our-esg-vision/environmental'
-      path: '/sustainability/our-esg-vision/environmental'
-      fullPath: '/sustainability/our-esg-vision/environmental'
-      preLoaderRoute: typeof SustainabilityOurEsgVisionEnvironmentalRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sustainability/our-esg-vision/governance-and-ethics': {
-      id: '/sustainability/our-esg-vision/governance-and-ethics'
-      path: '/sustainability/our-esg-vision/governance-and-ethics'
-      fullPath: '/sustainability/our-esg-vision/governance-and-ethics'
-      preLoaderRoute: typeof SustainabilityOurEsgVisionGovernanceAndEthicsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sustainability/our-esg-vision/social': {
-      id: '/sustainability/our-esg-vision/social'
-      path: '/sustainability/our-esg-vision/social'
-      fullPath: '/sustainability/our-esg-vision/social'
-      preLoaderRoute: typeof SustainabilityOurEsgVisionSocialRouteImport
+    '/blog/why-selenium-free-matters': {
+      id: '/blog/why-selenium-free-matters'
+      path: '/blog/why-selenium-free-matters'
+      fullPath: '/blog/why-selenium-free-matters'
+      preLoaderRoute: typeof BlogWhySeleniumFreeMattersRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -528,35 +239,16 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   ContactUsRoute: ContactUsRoute,
-  DownloadsRoute: DownloadsRoute,
-  GlobalReachRoute: GlobalReachRoute,
+  GalleryRoute: GalleryRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
-  SitemapRoute: SitemapRoute,
-  HomeHistoryRoute: HomeHistoryRoute,
-  HomeOurBehavioursRoute: HomeOurBehavioursRoute,
-  HomeOurPurposeRoute: HomeOurPurposeRoute,
-  HomeOwnershipRoute: HomeOwnershipRoute,
-  MarketsAluminiumIndustryRoute: MarketsAluminiumIndustryRoute,
-  MarketsLithiumIonBatteriesRoute: MarketsLithiumIonBatteriesRoute,
-  MarketsSpecialityAlloysRoute: MarketsSpecialityAlloysRoute,
-  MarketsSteelIndustryRoute: MarketsSteelIndustryRoute,
-  MarketsWeldingRodCoredWireIndustryRoute:
-    MarketsWeldingRodCoredWireIndustryRoute,
-  ProductsElectrolyticManganeseMetalEmmRoute:
-    ProductsElectrolyticManganeseMetalEmmRoute,
-  ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute:
-    ProductsHighPurityManganeseSulphateMonohydrateHpMsmRoute,
-  WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute:
-    WhatWeDoElectrolyticManganeseMetalEmmRefineryRoute,
-  WhatWeDoHpmsmProjectRoute: WhatWeDoHpmsmProjectRoute,
-  WhatWeDoMmcCombinedOperationsRoute: WhatWeDoMmcCombinedOperationsRoute,
-  SustainabilityOurEsgVisionEnvironmentalRoute:
-    SustainabilityOurEsgVisionEnvironmentalRoute,
-  SustainabilityOurEsgVisionGovernanceAndEthicsRoute:
-    SustainabilityOurEsgVisionGovernanceAndEthicsRoute,
-  SustainabilityOurEsgVisionSocialRoute: SustainabilityOurEsgVisionSocialRoute,
-  SustainabilityOurEsgVisionIndexRoute: SustainabilityOurEsgVisionIndexRoute,
+  ServicesRoute: ServicesRoute,
+  BlogChoosingAnEmmGradeRoute: BlogChoosingAnEmmGradeRoute,
+  BlogReadingACertificateOfAnalysisRoute:
+    BlogReadingACertificateOfAnalysisRoute,
+  BlogWhySeleniumFreeMattersRoute: BlogWhySeleniumFreeMattersRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

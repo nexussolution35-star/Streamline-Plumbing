@@ -14,51 +14,11 @@ type Kid = { label: string; to: string; blurb: string }
 type NavItem = { label: string; to?: string; kids?: Kid[] }
 
 export const NAV: NavItem[] = [
-  {
-    label: 'About us',
-    to: '/',
-    kids: [
-      { label: 'Ownership', to: '/home/ownership', blurb: 'Shareholding and corporate structure' },
-      { label: 'History', to: '/home/history', blurb: 'Five decades of manganese refining' },
-      { label: 'Our Purpose', to: '/home/our-purpose', blurb: 'Why we exist' },
-      { label: 'Our Behaviours', to: '/home/our-behaviours', blurb: 'How we work' },
-    ],
-  },
-  {
-    label: 'What we do',
-    kids: [
-      { label: 'EMM Refinery', to: '/what-we-do/electrolytic-manganese-metal-emm-refinery', blurb: 'Selenium-free electrolytic refining' },
-      { label: 'HP MSM Plant', to: '/what-we-do/hpmsm-project', blurb: 'High-purity sulphate for batteries' },
-      { label: 'Combined Operations', to: '/what-we-do/mmc-combined-operations', blurb: 'One integrated manganese flowsheet' },
-    ],
-  },
-  {
-    label: 'Products',
-    kids: [
-      { label: 'Electrolytic Manganese Metal (EMM)', to: '/products/electrolytic-manganese-metal-emm', blurb: 'Five grades, 99.9% purity' },
-      { label: 'High Purity Manganese Sulphate (HP MSM)', to: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm', blurb: 'Battery-grade precursor feedstock' },
-    ],
-  },
-  {
-    label: 'Markets',
-    kids: [
-      { label: 'Lithium-ion Batteries', to: '/markets/lithium-ion-batteries', blurb: 'Cathode active material' },
-      { label: 'Steel Industry', to: '/markets/steel-industry', blurb: 'Alloying and deoxidation' },
-      { label: 'Aluminium Industry', to: '/markets/aluminium-industry', blurb: 'Beverage can body stock' },
-      { label: 'Welding Rod & Cored-wire', to: '/markets/welding-rod-cored-wire-industry', blurb: 'Consumable manufacture' },
-      { label: 'Speciality Alloys', to: '/markets/speciality-alloys', blurb: 'Vacuum-melted and superalloys' },
-    ],
-  },
-  {
-    label: 'Sustainability',
-    kids: [
-      { label: 'Our ESG Vision', to: '/sustainability/our-esg-vision', blurb: 'Framework and commitments' },
-      { label: 'Environmental', to: '/sustainability/our-esg-vision/environmental', blurb: 'Water, energy, emissions, land' },
-      { label: 'Social', to: '/sustainability/our-esg-vision/social', blurb: 'People, safety, community' },
-      { label: 'Governance & Ethics', to: '/sustainability/our-esg-vision/governance-and-ethics', blurb: 'Oversight and conduct' },
-    ],
-  },
-  { label: 'Global reach', to: '/global-reach' },
+  { label: 'Home', to: '/' },
+  { label: 'About', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Gallery', to: '/gallery' },
+  { label: 'Blog', to: '/blog' },
   { label: 'Contact', to: '/contact-us' },
 ]
 
@@ -413,19 +373,17 @@ function Footer() {
               from Mbombela, South Africa since 1974.
             </p>
           </div>
-          {col('Company', [
-            ['About us', '/'],
-            ['Ownership', '/home/ownership'],
-            ['History', '/home/history'],
-            ['Our Purpose', '/home/our-purpose'],
-            ['Our Behaviours', '/home/our-behaviours'],
+          {col('Site', [
+            ['Home', '/'],
+            ['About', '/about'],
+            ['Services', '/services'],
+            ['Gallery', '/gallery'],
+            ['Blog', '/blog'],
           ])}
-          {col('Products & Markets', [
-            ['EMM', '/products/electrolytic-manganese-metal-emm'],
-            ['HP MSM', '/products/high-purity-manganese-sulphate-monohydrate-hp-msm'],
-            ['Lithium-ion Batteries', '/markets/lithium-ion-batteries'],
-            ['Steel', '/markets/steel-industry'],
-            ['Global reach', '/global-reach'],
+          {col('Products', [
+            ['Electrolytic Manganese Metal', '/services'],
+            ['High Purity Manganese Sulphate', '/services'],
+            ['Enquiries', '/contact-us'],
           ])}
           <div>
             <h4>Contact</h4>
@@ -439,9 +397,7 @@ function Footer() {
               <li>
                 <Link to="/contact-us">Enquiry form</Link>
               </li>
-              <li>
-                <Link to="/downloads">Downloads</Link>
-              </li>
+
             </ul>
           </div>
         </div>
@@ -452,7 +408,7 @@ function Footer() {
             </p>
             <nav aria-label="Legal">
               <Link to="/privacy-policy">Privacy Policy</Link>
-              <Link to="/sitemap">Sitemap</Link>
+              <a href="/sitemap.xml">Sitemap</a>
             </nav>
           </div>
         </div>

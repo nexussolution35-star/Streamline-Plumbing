@@ -25,7 +25,7 @@ const GRADES = [
     why: 'Vacuum melting exists to keep contamination out. A controlled oxygen profile and no selenium means nothing volatile is introduced with the manganese unit.',
     form: 'Flake',
     sector: 'Superalloys, aerospace, medical',
-    to: '/products/electrolytic-manganese-metal-emm',
+    to: '/services',
   },
   {
     process: 'Welding consumable manufacture',
@@ -34,7 +34,7 @@ const GRADES = [
     why: 'Dissolved hydrogen carried in through a consumable is a recognised cause of cold cracking. LH flake is produced for low-hydrogen practice.',
     form: 'Flake',
     sector: 'Welding rod, cored wire',
-    to: '/markets/welding-rod-cored-wire-industry',
+    to: '/services',
   },
   {
     process: 'Cathode precursor manufacture',
@@ -43,7 +43,7 @@ const GRADES = [
     why: 'Produced from our own 99.9% metal rather than from ore, so ore-borne impurity classes never enter the chemistry.',
     form: 'Crystalline sulphate',
     sector: 'Lithium-ion batteries',
-    to: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm',
+    to: '/services',
   },
   {
     process: 'Aluminium melt addition',
@@ -52,7 +52,7 @@ const GRADES = [
     why: 'Compacted for controlled dissolution and high recovery, so can body stock hits its target chemistry predictably rather than probabilistically.',
     form: 'Briquette',
     sector: 'Beverage can body stock',
-    to: '/markets/aluminium-industry',
+    to: '/services',
   },
   {
     process: 'High-specification steelmaking',
@@ -61,7 +61,7 @@ const GRADES = [
     why: 'Adds manganese without the residual elements that accompany a ferroalloy addition, giving precise control over final chemistry.',
     form: 'Flake',
     sector: 'Electrical and high-spec steels',
-    to: '/markets/steel-industry',
+    to: '/services',
   },
   {
     process: 'Powder-fed processes',
@@ -70,7 +70,7 @@ const GRADES = [
     why: 'Surface-stabilised for safer handling and storage where the downstream process needs manganese delivered as a powder.',
     form: 'Powder',
     sector: 'Speciality alloys, chemical',
-    to: '/products/electrolytic-manganese-metal-emm',
+    to: '/services',
   },
 ]
 
@@ -208,7 +208,7 @@ function Page() {
               From a single site in Mbombela, South Africa, we refine 99.9% selenium-free electrolytic manganese metal and ship it to customers across twenty countries — the only producer of its kind outside China.
             </p>
             <div className="btn-row">
-              <Link to="/products/electrolytic-manganese-metal-emm" className="btn btn--light">
+              <Link to="/services" className="btn btn--light">
                 Explore our products
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M2 8h11M9 4l4 4-4 4"></path>
@@ -363,7 +363,7 @@ function Page() {
               </div>
               <hr className="hair" data-reveal="" />
               <div className="btn-row" style={{ marginTop: 0 }}>
-                <Link to="/home/history" className="btn btn--ghost">
+                <Link to="/about" className="btn btn--ghost">
                   Our history
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M2 8h11M9 4l4 4-4 4"></path>
@@ -412,11 +412,11 @@ function Page() {
           <div>
             <h2 className="doc__head">Where the metal ends up</h2>
             <div className="picker__list" style={{ marginTop: '2rem' }}>
-              <Link to="/markets/lithium-ion-batteries" className="picker__opt"><i>01</i>Lithium-ion batteries</Link>
-              <Link to="/markets/steel-industry" className="picker__opt"><i>02</i>Steel</Link>
-              <Link to="/markets/aluminium-industry" className="picker__opt"><i>03</i>Aluminium</Link>
-              <Link to="/markets/welding-rod-cored-wire-industry" className="picker__opt"><i>04</i>Welding rod &amp; cored wire</Link>
-              <Link to="/markets/speciality-alloys" className="picker__opt"><i>05</i>Speciality alloys</Link>
+              <Link to="/services" className="picker__opt"><i>01</i>Lithium-ion batteries</Link>
+              <Link to="/services" className="picker__opt"><i>02</i>Steel</Link>
+              <Link to="/services" className="picker__opt"><i>03</i>Aluminium</Link>
+              <Link to="/services" className="picker__opt"><i>04</i>Welding rod &amp; cored wire</Link>
+              <Link to="/services" className="picker__opt"><i>05</i>Speciality alloys</Link>
             </div>
           </div>
         </div>
@@ -433,7 +433,7 @@ function Page() {
               qualified alternative outside it &mdash; not the largest producer, and not trying to be.
             </p>
             <div className="btn-row">
-              <Link to="/global-reach" className="btn btn--ghost">
+              <Link to="/services" className="btn btn--ghost">
                 Where we ship
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M2 8h11M9 4l4 4-4 4"></path>
@@ -521,7 +521,7 @@ function Page() {
               </div>
               <hr className="hair" data-reveal="" />
               <div className="btn-row" style={{ marginTop: 0 }}>
-                <Link to="/sustainability/our-esg-vision" className="btn btn--ghost">
+                <Link to="/about" className="btn btn--ghost">
                   Our ESG vision
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                     <path d="M2 8h11M9 4l4 4-4 4"></path>
