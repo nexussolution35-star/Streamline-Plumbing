@@ -469,7 +469,10 @@ export const Route = createRootRoute({
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
     ],
     links: [
-      { rel: 'icon', href: '/assets/img/favicon.png' },
+      // Google SERP fetches /favicon.ico by convention - keep it first.
+      { rel: 'icon', href: '/favicon.ico', type: 'image/x-icon' },
+      { rel: 'icon', type: 'image/png', href: '/favicon.png' },
+      { rel: 'apple-touch-icon', href: '/favicon.png' },
       { rel: 'stylesheet', href: '/assets/css/fonts.css' },
       { rel: 'stylesheet', href: '/assets/css/site.css' },
     ],
