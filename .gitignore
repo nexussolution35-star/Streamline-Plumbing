@@ -1,2 +1,8 @@
+node_modules/
+dist/
+.output/
+.vinxi/
+.tanstack/
+*.log
+.env
 .DS_Store
-Thumbs.db

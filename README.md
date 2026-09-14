@@ -87,3 +87,25 @@ that fails silently costs you the job.
 - **Accessibility** — skip link, visible focus rings, labelled form fields
   with inline errors, `role="radiogroup"` on the urgency picker, and a
   described hero schematic.
+
+---
+
+## MMC site — TanStack Start port
+
+The finished Manganese Metal Company static site ported to server-rendered routes.
+
+```bash
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # -> dist/client + dist/server
+npm start        # production server (server.mjs hosts the SSR handler)
+```
+
+- `src/routes/` — 24 file-based routes mirroring the original paths exactly
+- `src/routes/__root.tsx` — shared chrome (header, drawer, CTA, footer) + ported vanilla JS
+- `src/site.ts` — per-route metadata + JSON-LD helpers; `SITE_URL` sets the canonical origin
+- `public/assets/` — the original CSS/JS/images/fonts, dropped in unchanged
+- `public/sitemap.xml`, `public/robots.txt` — all 24 routes
+
+Forms are placeholder UI only: no backend, no analytics. `index.html` at the repo root is the
+earlier Streamline Plumbing page, left untouched and unused by the app.

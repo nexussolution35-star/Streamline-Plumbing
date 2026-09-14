@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Nothing important is blocked.
+Sitemap: https://www.mmc.co.za/sitemap.xml
