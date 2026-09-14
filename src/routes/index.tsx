@@ -1,4 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
+import { useEffect, useRef, useState } from 'react'
 import { pageHead, ld, SITE_URL, ORGANISATION } from '../site'
 
 export const Route = createFileRoute('/')({
@@ -13,6 +14,177 @@ export const Route = createFileRoute('/')({
   }),
   component: Page,
 })
+
+
+/** Buyer's process -> the grade that suits it. All drawn from MMC's published range. */
+const GRADES = [
+  {
+    process: 'Vacuum induction melting',
+    grade: 'Low Oxygen Flake',
+    code: 'LO',
+    why: 'Vacuum melting exists to keep contamination out. A controlled oxygen profile and no selenium means nothing volatile is introduced with the manganese unit.',
+    form: 'Flake',
+    sector: 'Superalloys, aerospace, medical',
+    to: '/products/electrolytic-manganese-metal-emm',
+  },
+  {
+    process: 'Welding consumable manufacture',
+    grade: 'Low Hydrogen Flake',
+    code: 'LH',
+    why: 'Dissolved hydrogen carried in through a consumable is a recognised cause of cold cracking. LH flake is produced for low-hydrogen practice.',
+    form: 'Flake',
+    sector: 'Welding rod, cored wire',
+    to: '/markets/welding-rod-cored-wire-industry',
+  },
+  {
+    process: 'Cathode precursor manufacture',
+    grade: 'High Purity Manganese Sulphate Monohydrate',
+    code: 'HP MSM',
+    why: 'Produced from our own 99.9% metal rather than from ore, so ore-borne impurity classes never enter the chemistry.',
+    form: 'Crystalline sulphate',
+    sector: 'Lithium-ion batteries',
+    to: '/products/high-purity-manganese-sulphate-monohydrate-hp-msm',
+  },
+  {
+    process: 'Aluminium melt addition',
+    grade: 'Manganese Aluminium Briquettes',
+    code: 'Mn/Al',
+    why: 'Compacted for controlled dissolution and high recovery, so can body stock hits its target chemistry predictably rather than probabilistically.',
+    form: 'Briquette',
+    sector: 'Beverage can body stock',
+    to: '/markets/aluminium-industry',
+  },
+  {
+    process: 'High-specification steelmaking',
+    grade: 'Low Hydrogen Flake',
+    code: 'LH',
+    why: 'Adds manganese without the residual elements that accompany a ferroalloy addition, giving precise control over final chemistry.',
+    form: 'Flake',
+    sector: 'Electrical and high-spec steels',
+    to: '/markets/steel-industry',
+  },
+  {
+    process: 'Powder-fed processes',
+    grade: 'Stabilised Powder',
+    code: 'SP',
+    why: 'Surface-stabilised for safer handling and storage where the downstream process needs manganese delivered as a powder.',
+    form: 'Powder',
+    sector: 'Speciality alloys, chemical',
+    to: '/products/electrolytic-manganese-metal-emm',
+  },
+]
+
+function GradePicker() {
+  const [i, setI] = useState(0)
+  const g = GRADES[i]
+  return (
+    <div className="picker">
+      <div>
+        <p className="doc__lead" style={{ marginBottom: '1.5rem' }}>
+          Tell us how the manganese enters your process and the right grade follows from it.
+        </p>
+        <div className="picker__list" role="listbox" aria-label="Select your process">
+          {GRADES.map((o, n) => (
+            <button
+              key={o.process}
+              type="button"
+              role="option"
+              aria-selected={n === i}
+              className="picker__opt"
+              onClick={() => setI(n)}
+            >
+              <i>{String(n + 1).padStart(2, '0')}</i>
+              {o.process}
+            </button>
+          ))}
+        </div>
+      </div>
+      <div className="picker__out picker__out--anim" key={i} aria-live="polite">
+        <p className="picker__code">Recommended grade &middot; {g.code}</p>
+        <p className="picker__grade">{g.grade}</p>
+        <p className="picker__why">{g.why}</p>
+        <dl className="picker__specs">
+          <div className="picker__spec"><dt>Physical form</dt><dd>{g.form}</dd></div>
+          <div className="picker__spec"><dt>Assay</dt><dd>99.9% manganese, selenium-free</dd></div>
+          <div className="picker__spec"><dt>Typical sector</dt><dd>{g.sector}</dd></div>
+          <div className="picker__spec"><dt>Ships with</dt><dd>Certificate of analysis per lot</dd></div>
+        </dl>
+        <div className="btn-row">
+          <Link to={g.to} className="btn btn--ghost">
+            Full specification
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M2 8h11M9 4l4 4-4 4"></path>
+            </svg>
+          </Link>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const STEPS = [
+  ['Leach', 'Manganese is taken into solution — the first separation from everything that arrived with the ore.'],
+  ['Purify', 'The solution is purified to strip trace metals before it ever reaches the cellhouse.'],
+  ['Electrowin', 'Purified electrolyte feeds the cells and manganese deposits onto cathodes. No selenium additive, at any point.'],
+  ['Strip & finish', 'Cathodes are stripped and processed into flake, powder or briquette according to the grade ordered.'],
+  ['Certify & despatch', 'Each lot is analysed and certified, then packed for export to your handling specification.'],
+]
+
+/** The cathode plate fills as the process section scrolls — deposition, literally. */
+function Deposition() {
+  const host = useRef<HTMLDivElement>(null)
+  const [pct, setPct] = useState(0)
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setPct(100); return }
+    let tick = false
+    const on = () => {
+      if (tick) return
+      tick = true
+      requestAnimationFrame(() => {
+        const el = host.current
+        if (el) {
+          const r = el.getBoundingClientRect()
+          const vh = window.innerHeight
+          // start once the block reaches 80% down the viewport, finish as its
+          // bottom clears 30% up - a smooth ramp across the section's travel
+          // travel is floored at 0.6vh so a short section still ramps smoothly
+          // instead of snapping from 0 to 100
+          const done = vh * 0.85 - r.top
+          const travel = Math.max(r.height - vh * 0.4, vh * 0.6)
+          const p = done / travel
+          setPct(Math.round(Math.min(Math.max(p, 0), 1) * 100))
+        }
+        tick = false
+      })
+    }
+    on()
+    window.addEventListener('scroll', on, { passive: true })
+    window.addEventListener('resize', on)
+    return () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on) }
+  }, [])
+  return (
+    <div className="dep" ref={host}>
+      <div className="dep__steps">
+        {STEPS.map(([t, d], n) => (
+          <div className="dep__step" key={t}>
+            <b>{String(n + 1).padStart(2, '0')}</b>
+            <div><h3>{t}</h3><p>{d}</p></div>
+          </div>
+        ))}
+      </div>
+      <div className="plate" aria-hidden="true">
+        <span className="plate__pct">{String(pct).padStart(3, '0')}%</span>
+        {[20, 40, 60, 80].map((y) => (
+          <span className="plate__tick" key={y} style={{ bottom: `${y}%` }} />
+        ))}
+        <span className="plate__fill" style={{ height: `${pct}%` }}>
+          <span className="plate__grain" />
+        </span>
+        <span className="plate__cap">Cathode deposition</span>
+      </div>
+    </div>
+  )
+}
 
 function Page() {
   return (
@@ -126,82 +298,71 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="section section--alt">
-        <div className="container">
-          <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">Customer confidence</p>
-            <h2>Qualified into supply chains that cannot take chances</h2>
-            <p className="lead">
-              Battery, aerospace and pressure-critical customers audit a supplier before they buy a
-              tonne. These are the things they verify.
+
+      {/* §01 — the assay. The product defined by what is not in it. */}
+      <section className="doc">
+        <div className="container doc__grid doc__grid--wide">
+          <p className="doc__rail"><b>01</b>Assay</p>
+          <div>
+            <h2 className="doc__head lines" data-reveal="">
+              <span><i>The product is</i></span>
+              <span><i>what is absent</i></span>
+            </h2>
+            <p className="doc__lead">
+              Every buyer decision here is made on a column of numbers. Manganese declared, selenium
+              never introduced, everything else held under a tenth of one percent.
             </p>
+            <hr className="hair hair--plum" data-reveal="" />
+            <p className="figure-xl">99.9<sup>%</sup></p>
+            <p className="figure-xl__cap">Manganese, every lot, since 1974</p>
           </div>
-          <div className="grid grid--3">
-            <div className="vcard" data-reveal="" data-reveal-delay="1">
-              <span className="vcard__num">01</span>
-              <h3>Lot-level certification</h3>
-              <p>Every production lot ships with a certificate of analysis giving the manganese assay
-                and the full trace-element profile.</p>
+          <div>
+            <div className="assay">
+              <div className="assay__row assay__row--hero" data-reveal="">
+                <span className="assay__sym">Mn</span>
+                <span className="assay__name">Manganese</span>
+                <span className="assay__val">99.9%</span>
+              </div>
+              <div className="assay__row assay__row--absent" data-reveal="" data-reveal-delay="1">
+                <span className="assay__sym">Se</span>
+                <span className="assay__name">Selenium &mdash; never introduced</span>
+                <span className="assay__val">absent</span>
+              </div>
+              <div className="assay__row" data-reveal="" data-reveal-delay="2">
+                <span className="assay__sym">&Sigma;</span>
+                <span className="assay__name">All other elements, combined</span>
+                <span className="assay__val">&le; 0.1%</span>
+              </div>
             </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="2">
-              <span className="vcard__num">02</span>
-              <h3>Open to audit</h3>
-              <p>Customer and third-party audit of the refinery and its quality system is a normal part
-                of qualification here, not an exception.</p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="3">
-              <span className="vcard__num">03</span>
-              <h3>Fifty years of the same process</h3>
-              <p>One metal, one site, since 1974. Consistency customers can build a process window
-                around rather than re-qualify each year.</p>
-            </div>
-          </div>
-          <div className="form__demo" style={{ maxWidth: '52rem', margin: '2rem auto 0' }}>
-            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-              <circle cx="10" cy="10" r="8"></circle>
-              <path d="M10 9v5M10 6.2v.1"></path>
-            </svg>
-            <span><strong>Customer quotes pending.</strong> This block is built to hold named customer
-              testimonials &mdash; supply approved quotes and they drop straight in. Nothing here is
-              invented or attributed.</span>
+            <p className="assay__foot">
+              The full trace-element profile is issued per production lot on the certificate of
+              analysis, with the analytical scope your qualification programme requires.
+            </p>
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="container">
-          <div className="grid grid--split">
-            <figure className="figure figure--stack" data-reveal="">
-              <img src="/assets/img/plant-wide.jpg" alt="" loading="lazy" />
-            </figure>
-            <div data-reveal="" data-reveal-delay="1">
-              <p className="eyebrow">
-                Who we are
-              </p>
-              <h2>
-                A single-site refiner with a global customer base
-              </h2>
-              <p className="lead">
-                Manganese Metal Company has refined electrolytic manganese metal at Mbombela since 1974.
-  Five decades on one site has made us specialists rather than generalists — one metal, refined
-  to a consistency that high-specification industries can build a process around.
-              </p>
-              <p>
-                Our selenium-free electrolytic route sets us apart. Conventional EMM production uses selenium as a
-  process additive, leaving residual traces that are unacceptable in battery chemistry, vacuum-melted
-  superalloys and premium welding consumables. We removed selenium from the process entirely.
-              </p>
-              <ul className="checks">
-                <li>
-                  The only selenium-free EMM refinery outside China
-                </li>
-                <li>
-                  Consistent 99.9% purity, lot after lot
-                </li>
-                <li>
-                  Supply security for customers diversifying away from single-region sourcing
-                </li>
-              </ul>
-              <div className="btn-row">
+
+      {/* §02 — who we are */}
+      <section className="doc">
+        <div className="container doc__grid">
+          <p className="doc__rail"><b>02</b>Refinery</p>
+          <div className="slab">
+            <div>
+              <h2 className="doc__head">One site. One metal. Fifty years.</h2>
+              <div className="doc__body">
+                <p>
+                  Manganese Metal Company has refined electrolytic manganese at Mbombela since 1974.
+                  Staying in one place, refining one metal, is what let the process knowledge compound
+                  &mdash; most consequentially into taking selenium out of the route entirely.
+                </p>
+                <p>
+                  Conventional production uses selenium as a process additive and accepts the residual
+                  traces that follow the metal into the customer&rsquo;s furnace. We do not use it, so
+                  there is none to remove downstream and none to declare.
+                </p>
+              </div>
+              <hr className="hair" data-reveal="" />
+              <div className="btn-row" style={{ marginTop: 0 }}>
                 <Link to="/home/history" className="btn btn--ghost">
                   Our history
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -210,362 +371,87 @@ function Page() {
                 </Link>
               </div>
             </div>
+            <figure className="slab__img" data-reveal="" style={{ margin: 0 }}>
+              <img src="/assets/img/plant-wide.jpg" alt="The MMC electrolytic manganese refinery at Mbombela" loading="lazy" />
+              <figcaption className="slab__tag">Mbombela, Mpumalanga</figcaption>
+            </figure>
           </div>
         </div>
       </section>
-      <section className="section section--alt">
-        <div className="container">
-          <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">
-              What we supply
-            </p>
-            <h2>
-              Two products, one flowsheet
-            </h2>
-            <p className="lead">
-              High-purity metal for metallurgy, and battery-grade sulphate produced from that same metal.
-            </p>
-          </div>
-          <div className="grid grid--2">
-            <article className="card" data-reveal="" data-reveal-delay="1">
-              <div className="card__media">
-                <span className="card__tag">
-                  Five grades
-                </span>
-                <img src="/assets/img/grade-lh.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  Electrolytic Manganese Metal (EMM)
-                </h3>
-                <p>
-                  99.9% pure, selenium-free manganese in flake, powder and briquette form for metallurgical and chemical use.
-                </p>
-                <Link to="/products/electrolytic-manganese-metal-emm" className="card__link">
-                  View grades
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
-            <article className="card" data-reveal="" data-reveal-delay="2">
-              <div className="card__media">
-                <span className="card__tag">
-                  Battery grade
-                </span>
-                <img src="/assets/img/mtx-plant.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  High Purity Manganese Sulphate Monohydrate
-                </h3>
-                <p>
-                  Battery-grade HP MSM produced directly from our own high-purity metal for cathode precursor manufacture.
-                </p>
-                <Link to="/products/high-purity-manganese-sulphate-monohydrate-hp-msm" className="card__link">
-                  View specification
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
+
+      {/* §03 — grade selector */}
+      <section className="doc">
+        <div className="container doc__grid">
+          <p className="doc__rail"><b>03</b>Select</p>
+          <div>
+            <h2 className="doc__head">Which grade does your process need?</h2>
+            <hr className="hair" data-reveal="" />
+            <GradePicker />
           </div>
         </div>
       </section>
-      <section className="section band">
-        <div className="band__media">
-          <img src="/assets/img/selenium-free-process.jpg" alt="" loading="lazy" />
+
+      {/* §04 — deposition */}
+      <section className="doc doc--dark">
+        <div className="container doc__grid">
+          <p className="doc__rail"><b>04</b>Process</p>
+          <div>
+            <h2 className="doc__head">Ore to certified grade, in five steps</h2>
+            <p className="doc__lead" style={{ marginBottom: '2.5rem' }}>
+              The selenium-free electrolytic route, start to finish, on one site.
+            </p>
+            <Deposition />
+          </div>
         </div>
-        <div className="container">
-          <div style={{ maxWidth: "44rem" }}>
-            <p className="eyebrow">
-              The difference
-            </p>
-            <h2>
-              We took selenium out of manganese refining
-            </h2>
-            <p className="lead">
-              Selenium is the conventional shortcut in electrolytic manganese production. It is also a
-    contaminant that follows the metal all the way into the customer’s furnace or cathode.
-            </p>
-            <p style={{ color: "rgba(255,255,255,.82)" }}>
-              Our process achieves the same electrolytic efficiency without it.
-    For customers in battery materials, aerospace alloys and precision welding, that single process decision
-    is the reason they qualify our metal in the first place.
+      </section>
+
+      {/* §05 — markets, as an index rather than a card grid */}
+      <section className="doc">
+        <div className="container doc__grid">
+          <p className="doc__rail"><b>05</b>Markets</p>
+          <div>
+            <h2 className="doc__head">Where the metal ends up</h2>
+            <div className="picker__list" style={{ marginTop: '2rem' }}>
+              <Link to="/markets/lithium-ion-batteries" className="picker__opt"><i>01</i>Lithium-ion batteries</Link>
+              <Link to="/markets/steel-industry" className="picker__opt"><i>02</i>Steel</Link>
+              <Link to="/markets/aluminium-industry" className="picker__opt"><i>03</i>Aluminium</Link>
+              <Link to="/markets/welding-rod-cored-wire-industry" className="picker__opt"><i>04</i>Welding rod &amp; cored wire</Link>
+              <Link to="/markets/speciality-alloys" className="picker__opt"><i>05</i>Speciality alloys</Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* §06 — reach */}
+      <section className="doc">
+        <div className="container doc__grid doc__grid--wide">
+          <p className="doc__rail"><b>06</b>Reach</p>
+          <div>
+            <h2 className="doc__head">Twenty countries, one refinery</h2>
+            <p className="doc__lead">
+              High-purity manganese production is unusually concentrated in one region. We are the
+              qualified alternative outside it &mdash; not the largest producer, and not trying to be.
             </p>
             <div className="btn-row">
-              <Link to="/what-we-do/electrolytic-manganese-metal-emm-refinery" className="btn btn--light">
-                How the refinery works
+              <Link to="/global-reach" className="btn btn--ghost">
+                Where we ship
                 <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                   <path d="M2 8h11M9 4l4 4-4 4"></path>
                 </svg>
               </Link>
             </div>
           </div>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">
-              Markets
-            </p>
-            <h2>
-              Where our manganese ends up
-            </h2>
-            <p className="lead">
-              Five industries rely on the purity and consistency of our metal.
-            </p>
-          </div>
-          <div className="grid grid--3">
-            <article className="card" data-reveal="" data-reveal-delay="1">
-              <div className="card__media">
-                <span className="card__tag">
-                  Energy
-                </span>
-                <img src="/assets/img/market-batteries.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  Lithium-ion Batteries
-                </h3>
-                <p>
-                  High-purity manganese raises the capacity, cycle life and thermal stability of cathode active material.
-                </p>
-                <Link to="/markets/lithium-ion-batteries" className="card__link">
-                  Read more
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
-            <article className="card" data-reveal="" data-reveal-delay="2">
-              <div className="card__media">
-                <span className="card__tag">
-                  Metallurgy
-                </span>
-                <img src="/assets/img/market-steel.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  Steel Industry
-                </h3>
-                <p>
-                  Precise manganese additions without the residual impurities that compromise high-specification steels.
-                </p>
-                <Link to="/markets/steel-industry" className="card__link">
-                  Read more
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
-            <article className="card" data-reveal="" data-reveal-delay="3">
-              <div className="card__media">
-                <span className="card__tag">
-                  Packaging
-                </span>
-                <img src="/assets/img/market-aluminium.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  Aluminium Industry
-                </h3>
-                <p>
-                  Manganese gives beverage can body stock the strength and formability that thin-wall drawing demands.
-                </p>
-                <Link to="/markets/aluminium-industry" className="card__link">
-                  Read more
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
-            <article className="card" data-reveal="" data-reveal-delay="4">
-              <div className="card__media">
-                <span className="card__tag">
-                  Consumables
-                </span>
-                <img src="/assets/img/market-welding.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  Welding Rod & Cored-wire
-                </h3>
-                <p>
-                  Low-hydrogen, low-oxygen grades for welding consumables where weld integrity is non-negotiable.
-                </p>
-                <Link to="/markets/welding-rod-cored-wire-industry" className="card__link">
-                  Read more
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
-            <article className="card" data-reveal="" data-reveal-delay="1">
-              <div className="card__media">
-                <span className="card__tag">
-                  Advanced
-                </span>
-                <img src="/assets/img/market-alloys.jpg" alt="" loading="lazy" />
-              </div>
-              <div className="card__body">
-                <h3>
-                  Speciality Alloys
-                </h3>
-                <p>
-                  Vacuum-melted superalloys and speciality grades that cannot tolerate selenium or trace contamination.
-                </p>
-                <Link to="/markets/speciality-alloys" className="card__link">
-                  Read more
-                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                    <path d="M2 8h11M9 4l4 4-4 4"></path>
-                  </svg>
-                </Link>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">How we refine</p>
-            <h2>Five steps from ore to certified grade</h2>
-            <p className="lead">
-              The selenium-free electrolytic route, start to finish, on one site in Mbombela.
-            </p>
-          </div>
-          <div className="grid grid--4">
-            <div className="vcard" data-reveal="" data-reveal-delay="1">
-              <span className="vcard__num">01</span><h3>Leach</h3>
-              <p>Manganese is taken into solution, the first step in separating it from everything
-                that arrived with the ore.</p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="2">
-              <span className="vcard__num">02</span><h3>Purify</h3>
-              <p>The solution is purified to strip trace metals before it ever reaches the cellhouse.</p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="3">
-              <span className="vcard__num">03</span><h3>Electrowin</h3>
-              <p>Purified electrolyte feeds the cells and manganese deposits onto cathodes &mdash;
-                with no selenium additive at any point.</p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="4">
-              <span className="vcard__num">04</span><h3>Finish</h3>
-              <p>Cathodes are stripped and processed into flake, powder or briquette according to the
-                grade ordered.</p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="1">
-              <span className="vcard__num">05</span><h3>Certify &amp; despatch</h3>
-              <p>Each lot is analysed and certified, then packed for export to your handling
-                specification.</p>
-            </div>
-          </div>
-          <div className="btn-row" style={{ justifyContent: 'center' }} data-reveal="">
-            <Link to="/what-we-do/electrolytic-manganese-metal-emm-refinery" className="btn btn--ghost">
-              Inside the refinery
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                  <path d="M2 8h11M9 4l4 4-4 4"></path>
-                </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
-      <section className="section section--alt">
-        <div className="container">
-          <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">Our operation in numbers</p>
-            <h2>Five decades, one refinery</h2>
-          </div>
-          <div className="stats">
-            <div className="stat" data-reveal="" data-reveal-delay="1">
-              <b data-count="1974">0</b>
-              <span>Refining since</span>
-            </div>
-            <div className="stat" data-reveal="" data-reveal-delay="2">
-              <b data-count="28000" data-suffix="t">0</b>
-              <span>Tonnes EMM capacity</span>
-            </div>
-            <div className="stat" data-reveal="" data-reveal-delay="3">
-              <b data-count="99.9" data-suffix="%" data-decimals="1">0</b>
-              <span>Manganese purity</span>
-            </div>
-            <div className="stat" data-reveal="" data-reveal-delay="4">
-              <b data-count="5">0</b>
-              <span>EMM grades produced</span>
-            </div>
-            <div className="stat" data-reveal="" data-reveal-delay="1">
-              <b data-count="20">0</b>
-              <span>Export destinations</span>
+          <div>
+            <div className="assay">
+              <div className="assay__row" data-reveal=""><span className="assay__sym">20</span><span className="assay__name">Countries served</span><span className="assay__val">4 continents</span></div>
+              <div className="assay__row" data-reveal="" data-reveal-delay="1"><span className="assay__sym">28k</span><span className="assay__name">Tonnes EMM capacity</span><span className="assay__val">per annum</span></div>
+              <div className="assay__row" data-reveal="" data-reveal-delay="2"><span className="assay__sym">05</span><span className="assay__name">EMM grades produced</span><span className="assay__val">flake, powder, briquette</span></div>
+              <div className="assay__row" data-reveal="" data-reveal-delay="3"><span className="assay__sym">1974</span><span className="assay__name">Refining since</span><span className="assay__val">one site</span></div>
             </div>
           </div>
         </div>
       </section>
-      <section className="section section--ink">
-        <div className="container">
-          <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">
-              Why customers qualify us
-            </p>
-            <h2>
-              Built for specifications that leave no margin
-            </h2>
-          </div>
-          <div className="grid grid--4">
-            <div className="vcard" data-reveal="" data-reveal-delay="1">
-              <span className="vcard__num">
-                01
-              </span>
-              <h3>
-                Purity you can plan around
-              </h3>
-              <p>
-                99.9% manganese with a tightly controlled trace-element profile, so your process window stays where you set it.
-              </p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="2">
-              <span className="vcard__num">
-                02
-              </span>
-              <h3>
-                Selenium-free by design
-              </h3>
-              <p>
-                Not scrubbed out downstream — never introduced. The cleanest possible starting point for sensitive chemistry.
-              </p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="3">
-              <span className="vcard__num">
-                03
-              </span>
-              <h3>
-                Supply diversification
-              </h3>
-              <p>
-                A qualified, audited source of high-purity manganese outside the dominant production region.
-              </p>
-            </div>
-            <div className="vcard" data-reveal="" data-reveal-delay="4">
-              <span className="vcard__num">
-                04
-              </span>
-              <h3>
-                Integrated flowsheet
-              </h3>
-              <p>
-                Metal and sulphate from one operation, one quality system, one point of accountability.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
+
       <section className="section">
         <div className="container container--narrow">
           <div className="section-head section-head--center" data-reveal="">
@@ -618,25 +504,23 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="section">
-        <div className="container">
-          <div className="grid grid--split">
-            <div data-reveal="" data-reveal-delay="1">
-              <p className="eyebrow">
-                Sustainability
-              </p>
-              <h2>
-                Responsible refining is a licence to operate
-              </h2>
-              <p className="lead">
-                Manganese is essential to decarbonisation — it goes into the batteries, the lightweight
-  alloys and the steel that the energy transition depends on. Producing it responsibly is part of the same job.
-              </p>
-              <p>
-                Our ESG framework covers environmental stewardship at the Mbombela site, the safety and development of our
-  people, and the governance that holds both to account.
-              </p>
-              <div className="btn-row">
+
+      {/* §08 — ESG */}
+      <section className="doc">
+        <div className="container doc__grid">
+          <p className="doc__rail"><b>08</b>ESG</p>
+          <div className="slab slab--flip">
+            <div>
+              <h2 className="doc__head">Responsible refining is a licence to operate</h2>
+              <div className="doc__body">
+                <p>
+                  Manganese goes into the batteries, the lightweight alloys and the steel that
+                  decarbonisation runs on. Producing it responsibly is part of the same job, not a
+                  programme running alongside it.
+                </p>
+              </div>
+              <hr className="hair" data-reveal="" />
+              <div className="btn-row" style={{ marginTop: 0 }}>
                 <Link to="/sustainability/our-esg-vision" className="btn btn--ghost">
                   Our ESG vision
                   <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
@@ -645,11 +529,9 @@ function Page() {
                 </Link>
               </div>
             </div>
-            <figure className="figure figure--framed" data-reveal="">
-              <img src="/assets/img/esg-diagram.png" alt="" loading="lazy" />
-              <figcaption>
-                Our sustainability framework at a glance.
-              </figcaption>
+            <figure className="slab__img" data-reveal="" style={{ margin: 0 }}>
+              <img src="/assets/img/site-aerial.jpg" alt="Aerial view of the MMC site and the land around it" loading="lazy" />
+              <figcaption className="slab__tag">Site &amp; surrounds</figcaption>
             </figure>
           </div>
         </div>
