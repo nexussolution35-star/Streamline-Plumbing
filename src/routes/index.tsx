@@ -17,11 +17,12 @@ export const Route = createFileRoute('/')({
 function Page() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero--form">
         <div className="hero__media">
           <img src="/assets/img/hero-refinery.jpg" alt="" fetchPriority="high" />
         </div>
         <div className="container hero__inner">
+          <div className="hero__grid">
           <div className="hero__content">
             <p className="eyebrow">
               Selenium-free manganese since 1974
@@ -48,6 +49,46 @@ function Page() {
                 </svg>
               </Link>
             </div>
+          </div>
+          <div className="hero__form" data-reveal="" data-reveal-delay="1">
+            <form className="form" data-demo="" noValidate>
+              <h3>Request a specification</h3>
+              <p className="form__intro">
+                Tell us the grade and volume you need and we&rsquo;ll come back with availability and technical data.
+              </p>
+              <div className="form__grid form__grid--2">
+                <div className="field">
+                  <label htmlFor="hero-name">Full name <span className="req">*</span></label>
+                  <input id="hero-name" name="name" type="text" placeholder="Your full name" autoComplete="name" />
+                </div>
+                <div className="field">
+                  <label htmlFor="hero-company">Company <span className="req">*</span></label>
+                  <input id="hero-company" name="company" type="text" placeholder="Company name" autoComplete="organization" />
+                </div>
+                <div className="field field--full">
+                  <label htmlFor="hero-email">Email <span className="req">*</span></label>
+                  <input id="hero-email" name="email" type="email" placeholder="you@company.com" autoComplete="email" />
+                </div>
+                <div className="field field--full">
+                  <label htmlFor="hero-message">What do you need? <span className="req">*</span></label>
+                  <textarea id="hero-message" name="message" placeholder="Grade, indicative volume and delivery country."></textarea>
+                </div>
+              </div>
+              <button className="btn btn--primary" type="submit">
+                Send enquiry
+                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M2 8h11M9 4l4 4-4 4"></path>
+                </svg>
+              </button>
+              <div className="form__demo">
+                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+                  <circle cx="10" cy="10" r="8"></circle>
+                  <path d="M10 9v5M10 6.2v.1"></path>
+                </svg>
+                <span><strong>Placeholder form.</strong> UI only &mdash; nothing is submitted, stored or sent.</span>
+              </div>
+            </form>
+          </div>
           </div>
           <div className="hero__stats">
             <div className="hero__stat">

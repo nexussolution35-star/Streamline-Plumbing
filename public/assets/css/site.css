@@ -204,6 +204,23 @@ li{margin-bottom:var(--s2)}
 .hero h1{color:#fff;margin-bottom:var(--s5)}
 .hero__sub{font-size:var(--fs-lead);color:rgba(255,255,255,.86);max-width:40rem;margin-bottom:var(--s6)}
 .hero--inner{min-height:clamp(400px,52vh,560px);align-items:center;padding-bottom:var(--s8)}
+
+/* hero with an inline enquiry form: content left, card right, stats full width */
+.hero--form{align-items:center;padding-top:calc(var(--header-h) + var(--s7));padding-bottom:var(--s8)}
+.hero--form .hero__grid{display:grid;gap:clamp(2rem,4vw,3.5rem);align-items:center}
+@media(min-width:1040px){.hero--form .hero__grid{grid-template-columns:1.05fr .95fr}}
+.hero--form .hero__content{max-width:38rem}
+.hero--form .display{font-size:clamp(2.3rem,1.35rem + 2.6vw,3.85rem)}
+.hero--form .hero__sub{margin-bottom:var(--s5)}
+.hero--form .btn-row{margin-top:var(--s5)}
+.hero__form{width:100%}
+@media(min-width:1040px){.hero__form{max-width:31rem;margin-left:auto}}
+.hero__form .form{padding:clamp(1.5rem,2.4vw,2.1rem)}
+.hero__form .form h3{font-size:1.2rem;margin-bottom:var(--s2)}
+.hero__form .form__intro{font-size:var(--fs-sm);color:var(--ink-500);margin:0 0 var(--s5)}
+.hero__form .field textarea{min-height:104px}
+.hero__form .form__demo{margin:var(--s4) 0 0;padding:var(--s3) var(--s4)}
+
 .hero--inner h1{max-width:22ch}
 
 /* hero stat strip */
