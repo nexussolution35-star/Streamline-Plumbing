@@ -48,23 +48,58 @@ function Page() {
         <div className="container doc__grid">
           <p className="doc__rail"><b>01</b>Process</p>
           <div className="doc__body">
-            <div className="form__demo" style={{ marginBottom: '2rem' }}>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                <circle cx="10" cy="10" r="8"></circle>
-                <path d="M10 9v5M10 6.2v.1"></path>
-              </svg>
-              <span>
-                <strong>Placeholder article.</strong> This page exists to prove the article layout,
-                metadata and Article schema. It carries no technical content and must be replaced
-                before launch &mdash; nothing here should be read as guidance.
-              </span>
-            </div>
-            <p className="doc__lead">Where a residual process additive shows up later — in battery chemistry, vacuum melting and precision welding.</p>
+
+            <p className="doc__lead">
+              Selenium is the conventional shortcut in electrolytic manganese production. It is also a
+              contaminant that travels with the metal into whatever the customer does next.
+            </p>
             <hr className="hair" data-reveal="" />
+            <h2>Why it is used at all</h2>
             <p>
-              Body copy to be supplied by Manganese Metal Company. The layout below the standfirst is
-              a standard article measure: paragraphs, subheadings and pull quotes all inherit the
-              site&rsquo;s document styling.
+              Electrolytic manganese is won from solution onto cathodes. Conventional practice adds
+              selenium to the electrolyte because it improves current efficiency and the quality of the
+              deposit. It is an effective process additive, and on those terms the choice is
+              understandable.
+            </p>
+            <p>
+              The cost is that selenium does not stay in the cellhouse. It follows the metal, and it
+              arrives at the customer as a residual the customer did not ask for.
+            </p>
+            <h2>Removing it later is not the same thing</h2>
+            <p>
+              A contaminant that is never introduced requires no removal step, leaves no residual to
+              declare, and creates no variability between lots depending on how well that removal step
+              performed on the day. Our electrolyte chemistry and cell conditions were reworked to
+              reach the same deposition performance without a selenium additive at all.
+            </p>
+            <p>
+              That is the whole difference: not scrubbed out downstream, never put in.
+            </p>
+            <h2>Where it shows up downstream</h2>
+            <p>
+              <strong>Battery chemistry.</strong> Impurities in cathode active material do not stay
+              put. Trace contaminants introduced with the manganese can seed side reactions and erode
+              the thermal margin the chemistry was selected for. Since our high-purity manganese
+              sulphate is produced from our own metal rather than from ore, the starting point for that
+              chemistry is as clean as we can make it.
+            </p>
+            <p>
+              <strong>Vacuum melting.</strong> Volatile and tramp elements behave unpredictably under
+              vacuum, and superalloys for aerospace, energy and medical use are specified to
+              trace-element limits that ordinary manganese cannot meet. A grade with no selenium to
+              declare is simply easier to qualify.
+            </p>
+            <p>
+              <strong>Precision welding.</strong> Consumables carry their impurities directly into the
+              weld pool. In pipeline, pressure-vessel and structural work, that turns the purity of the
+              manganese addition into a structural question rather than a metallurgical nicety.
+            </p>
+            <h2>Why it is a supply question too</h2>
+            <p>
+              High-purity manganese production is unusually concentrated in one region. For a buyer
+              holding a qualified alternative source outside it, the selenium-free route is often what
+              makes that alternative qualifiable in the first place &mdash; which is why the process
+              decision and the supply-security decision tend to arrive together.
             </p>
             <div className="btn-row">
               <Link to="/blog" className="btn btn--ghost">

@@ -48,23 +48,62 @@ function Page() {
         <div className="container doc__grid">
           <p className="doc__rail"><b>01</b>Grades</p>
           <div className="doc__body">
-            <div className="form__demo" style={{ marginBottom: '2rem' }}>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                <circle cx="10" cy="10" r="8"></circle>
-                <path d="M10 9v5M10 6.2v.1"></path>
-              </svg>
-              <span>
-                <strong>Placeholder article.</strong> This page exists to prove the article layout,
-                metadata and Article schema. It carries no technical content and must be replaced
-                before launch &mdash; nothing here should be read as guidance.
-              </span>
-            </div>
-            <p className="doc__lead">Physical form is process-specific. A short guide to matching the grade to how the manganese enters your melt.</p>
+
+            <p className="doc__lead">
+              All five of our electrolytic manganese grades share the same assay and the same
+              selenium-free origin. What separates them is physical form &mdash; and form is decided by
+              your process, not by preference.
+            </p>
             <hr className="hair" data-reveal="" />
+            <h2>Form is a process decision</h2>
             <p>
-              Body copy to be supplied by Manganese Metal Company. The layout below the standfirst is
-              a standard article measure: paragraphs, subheadings and pull quotes all inherit the
-              site&rsquo;s document styling.
+              A vacuum-melting alloy producer and an aluminium can-stock mill both need high-purity
+              manganese, and they need it delivered into the melt in completely different ways. Getting
+              the form wrong shows up as poor recovery, handling difficulty or an unstable process
+              window long before it shows up as a chemistry problem.
+            </p>
+            <h2>Flake &mdash; LH and LO</h2>
+            <p>
+              Flake is the general-purpose form, produced in two variants distinguished by which
+              dissolved gas is the controlling variable in your process.
+            </p>
+            <p>
+              <strong>Low Hydrogen Flake (LH)</strong> is produced for low-hydrogen practice. Hydrogen
+              introduced through a consumable is a recognised contributor to cold cracking in
+              high-strength welds, which is why welding consumable manufacture is the clearest case for
+              this grade. High-specification steelmaking draws on it for the same reason.
+            </p>
+            <p>
+              <strong>Low Oxygen Flake (LO)</strong> suits vacuum-melted and high-integrity alloy
+              production, where the oxygen profile governs. Vacuum induction melting exists to keep
+              contamination out of the melt; the manganese addition should not be the thing that puts
+              it back in.
+            </p>
+            <h2>Powder &mdash; SP and UP</h2>
+            <p>
+              Powder is for processes that feed manganese as a powder rather than charging solid units.
+              <strong> Stabilised Powder (SP)</strong> carries a surface treatment that makes handling
+              and storage more forgiving. <strong>Unstabilised Powder (UP)</strong> is untreated, for
+              processes where that surface modification would interfere downstream.
+            </p>
+            <p>
+              The choice between them is rarely about the manganese and almost always about what
+              happens to the particle surface once it enters your process.
+            </p>
+            <h2>Briquette &mdash; Mn/Al</h2>
+            <p>
+              Manganese aluminium briquettes are engineered specifically for addition into aluminium
+              melts. Compaction controls the rate at which the addition dissolves, which is what makes
+              recovery repeatable rather than variable. For can body stock, where alloy chemistry
+              drives how stable a high-speed forming operation is, predictability is the entire point.
+            </p>
+            <h2>How to decide</h2>
+            <p>
+              Start from how the manganese physically enters your process, not from the grade list.
+              Describe the application to us &mdash; the melt practice, the handling constraint, the
+              element you are most worried about &mdash; and the grade usually follows from it. There
+              is no charge for that conversation, and it is a faster route to the right answer than
+              working backwards from a specification sheet.
             </p>
             <div className="btn-row">
               <Link to="/blog" className="btn btn--ghost">

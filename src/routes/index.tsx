@@ -412,11 +412,26 @@ function Page() {
           <div>
             <h2 className="doc__head">Where the metal ends up</h2>
             <div className="picker__list" style={{ marginTop: '2rem' }}>
-              <Link to="/services" className="picker__opt"><i>01</i>Lithium-ion batteries</Link>
-              <Link to="/services" className="picker__opt"><i>02</i>Steel</Link>
-              <Link to="/services" className="picker__opt"><i>03</i>Aluminium</Link>
-              <Link to="/services" className="picker__opt"><i>04</i>Welding rod &amp; cored wire</Link>
-              <Link to="/services" className="picker__opt"><i>05</i>Speciality alloys</Link>
+              <Link to="/services" className="picker__opt picker__opt--desc">
+                <i>01</i>
+                <span><strong>Lithium-ion batteries</strong><em>Manganese-rich cathode chemistry offers lower cost and better thermal margin — but only where the manganese unit is clean enough not to seed side reactions.</em></span>
+              </Link>
+              <Link to="/services" className="picker__opt picker__opt--desc">
+                <i>02</i>
+                <span><strong>Steel</strong><em>Most manganese in steelmaking arrives as ferroalloy. High-purity metal is for the grades where the residual elements that come with it are not acceptable.</em></span>
+              </Link>
+              <Link to="/services" className="picker__opt picker__opt--desc">
+                <i>03</i>
+                <span><strong>Aluminium</strong><em>Can body stock depends on manganese for the balance of strength and formability that lets a sheet be drawn thin at speed without tearing.</em></span>
+              </Link>
+              <Link to="/services" className="picker__opt picker__opt--desc">
+                <i>04</i>
+                <span><strong>Welding rod &amp; cored wire</strong><em>A consumable carries its impurities straight into the weld pool, which makes purity a structural question in pipeline and pressure-vessel work.</em></span>
+              </Link>
+              <Link to="/services" className="picker__opt picker__opt--desc">
+                <i>05</i>
+                <span><strong>Speciality alloys</strong><em>Vacuum melting exists to keep contamination out. Feeding it a manganese unit carrying selenium defeats the point of the process.</em></span>
+              </Link>
             </div>
           </div>
         </div>

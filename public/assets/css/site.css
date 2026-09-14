@@ -640,3 +640,11 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(
 .gal__item figcaption{display:flex;gap:.6rem;font-family:var(--font-mono);font-size:.625rem;
   letter-spacing:.06em;color:var(--steel-600);line-height:1.5;padding-top:.6rem}
 .gal__item figcaption i{font-style:normal;color:var(--plum-600);flex:none}
+
+/* index rows that carry a description under the label */
+.picker__opt--desc{align-items:flex-start;padding:1.15rem .25rem}
+.picker__opt--desc span{display:block}
+.picker__opt--desc strong{display:block;font-weight:700;margin-bottom:.3rem}
+.picker__opt--desc em{display:block;font-style:normal;font-family:var(--font-body);font-weight:400;
+  font-size:var(--fs-sm);line-height:1.55;color:var(--ink-500);max-width:58ch}
+.picker__opt--desc:hover em{color:var(--ink-700)}

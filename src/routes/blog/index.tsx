@@ -49,22 +49,11 @@ function Page() {
         <div className="container doc__grid">
           <p className="doc__rail"><b>01</b>Index</p>
           <div>
-            <div className="form__demo" style={{ marginBottom: '2rem' }}>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                <circle cx="10" cy="10" r="8"></circle>
-                <path d="M10 9v5M10 6.2v.1"></path>
-              </svg>
-              <span>
-                <strong>Placeholder articles.</strong> The index, article layout and schema are built and
-                working. The three entries below are structural stand-ins with no technical content and
-                must be replaced with real articles before launch.
-              </span>
-            </div>
             <div className="picker__list">
               {POSTS.map((p, i) => (
-                <Link key={p.slug} to={`/blog/${p.slug}`} className="picker__opt">
+                <Link key={p.slug} to={`/blog/${p.slug}`} className="picker__opt picker__opt--desc">
                   <i>{String(i + 1).padStart(2, '0')}</i>
-                  {p.title}
+                  <span><strong>{p.title}</strong><em>{p.standfirst}</em></span>
                 </Link>
               ))}
             </div>

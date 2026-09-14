@@ -48,23 +48,61 @@ function Page() {
         <div className="container doc__grid">
           <p className="doc__rail"><b>01</b>Quality</p>
           <div className="doc__body">
-            <div className="form__demo" style={{ marginBottom: '2rem' }}>
-              <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
-                <circle cx="10" cy="10" r="8"></circle>
-                <path d="M10 9v5M10 6.2v.1"></path>
-              </svg>
-              <span>
-                <strong>Placeholder article.</strong> This page exists to prove the article layout,
-                metadata and Article schema. It carries no technical content and must be replaced
-                before launch &mdash; nothing here should be read as guidance.
-              </span>
-            </div>
-            <p className="doc__lead">What the assay, the trace-element profile and the lot number actually tell you before you qualify a supplier.</p>
+
+            <p className="doc__lead">
+              A certificate of analysis is the document a buyer actually purchases against. The
+              marketing claim is the assay; the certificate is the evidence. Here is what each part of
+              it is telling you.
+            </p>
             <hr className="hair" data-reveal="" />
+            <h2>What the document is for</h2>
             <p>
-              Body copy to be supplied by Manganese Metal Company. The layout below the standfirst is
-              a standard article measure: paragraphs, subheadings and pull quotes all inherit the
-              site&rsquo;s document styling.
+              A certificate of analysis records what was measured in a specific production lot, not
+              what the producer generally achieves. That distinction matters. A supplier quoting a
+              typical assay is describing an average; a certificate is describing the material on your
+              pallet. Incoming inspection should always be reconciling against the second.
+            </p>
+            <h2>The assay line</h2>
+            <p>
+              The headline figure states the manganese content. Ours is 99.9%, and it is the number
+              most buyers quote back to us. On its own, though, it is the least informative line on the
+              page. Two suppliers can both declare 99.9% manganese while the remaining tenth of a
+              percent behaves completely differently in your process.
+            </p>
+            <h2>The trace-element profile</h2>
+            <p>
+              This is the part that decides whether the material is usable. The profile lists the
+              elements measured in the balance, and it is where a process engineer should be looking
+              first. What matters is not only the magnitude of each value but which elements were
+              measured at all &mdash; an element absent from the scope is not an element proven absent
+              from the metal.
+            </p>
+            <p>
+              If your qualification programme cares about a specific contaminant, confirm it appears in
+              the analytical scope before you qualify the supply, not after a heat goes out of
+              specification.
+            </p>
+            <h2>Declarations</h2>
+            <p>
+              Some statements on a certificate are declarations rather than measurements. Our
+              selenium-free declaration is one: selenium is never introduced into our electrolytic
+              route, so there is no process step at which it could enter the metal. That is a different
+              claim from a measured value below a detection limit, and it is worth understanding which
+              kind of statement you are relying on.
+            </p>
+            <h2>Lot traceability</h2>
+            <p>
+              The lot number ties the certificate to a defined quantity of production. It is what makes
+              an investigation possible if something downstream goes wrong: without it, a problem can
+              only be described, not traced. Retained samples serve the same purpose from the
+              supplier&rsquo;s side, and are worth agreeing at the point of qualification.
+            </p>
+            <h2>What to ask for</h2>
+            <p>
+              Beyond the standard document, it is reasonable to request a wider analytical scope,
+              tighter limits on named elements, retained samples, or the right to audit the quality
+              system that produces the certificate. We treat all four as a normal part of
+              qualification rather than an exception.
             </p>
             <div className="btn-row">
               <Link to="/blog" className="btn btn--ghost">
