@@ -9,7 +9,7 @@ export const Route = createFileRoute('/')({
       description: "Manganese Metal Company refines 99.9% selenium-free electrolytic manganese metal in Mbombela, South Africa, supplying battery, steel, aluminium, welding and speciality alloy customers in 20 countries.",
       image: "/assets/img/hero-refinery.jpg",
     }),
-    scripts: [...ld(ORGANISATION), ...ld({"@context": "https://schema.org", "@type": "WebSite", "name": "Manganese Metal Company", "url": `${SITE_URL}/`, "description": "Manganese Metal Company refines 99.9% selenium-free electrolytic manganese metal in Mbombela, South Africa, supplying battery, steel, aluminium, welding and speciality alloy customers in 20 countries.", "publisher": {"@type": "Organization", "name": "Manganese Metal Company", "url": `${SITE_URL}/`}})],
+    scripts: [...ld(ORGANISATION), ...ld({"@context": "https://schema.org", "@type": "WebSite", "name": "Manganese Metal Company", "url": `${SITE_URL}/`, "description": "Manganese Metal Company refines 99.9% selenium-free electrolytic manganese metal in Mbombela, South Africa, supplying battery, steel, aluminium, welding and speciality alloy customers in 20 countries.", "publisher": {"@type": "Organization", "name": "Manganese Metal Company", "url": `${SITE_URL}/`}}), ...ld({"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How pure is MMC's manganese?", "acceptedAnswer": {"@type": "Answer", "text": "Our electrolytic manganese metal assays at 99.9% manganese, with a tightly controlled trace-element profile certified for every production lot."}}, {"@type": "Question", "name": "What does “selenium-free” actually mean?", "acceptedAnswer": {"@type": "Answer", "text": "Conventional electrolytic manganese production uses selenium as a process additive, which leaves residual traces in the finished metal. We never introduce it, so there is none to remove downstream and none to declare."}}, {"@type": "Question", "name": "Which grades do you produce?", "acceptedAnswer": {"@type": "Answer", "text": "Five: Low Hydrogen Flake (LH), Low Oxygen Flake (LO), Stabilised Powder (SP), Unstabilised Powder (UP) and Manganese Aluminium Briquettes (Mn/Al). All share the same assay; they differ in physical form and finishing."}}, {"@type": "Question", "name": "Do you supply battery-grade material?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Our High Purity Manganese Sulphate Monohydrate is produced from our own 99.9% metal rather than from ore, starting at 6,000 tonnes per annum with a route to 30,000."}}, {"@type": "Question", "name": "Where do you ship?", "acceptedAnswer": {"@type": "Answer", "text": "Twenty countries across four continents, from our single site in Mbombela, South Africa."}}, {"@type": "Question", "name": "What documentation comes with an order?", "acceptedAnswer": {"@type": "Answer", "text": "A certificate of analysis per lot giving the manganese assay and trace-element profile, a selenium-free declaration, lot traceability and the export documentation for your destination."}}, {"@type": "Question", "name": "Can we audit the operation or request qualification samples?", "acceptedAnswer": {"@type": "Answer", "text": "Both. Customer and third-party audit is a normal part of qualification, and sample quantities for qualification programmes are arranged case by case."}}]})],
   }),
   component: Page,
 })
@@ -52,7 +52,7 @@ function Page() {
           </div>
           <div className="hero__form" data-reveal="" data-reveal-delay="1">
             <form className="form" data-demo="" noValidate>
-              <h3>Request a specification</h3>
+              <h2>Request a specification</h2>
               <p className="form__intro">
                 Tell us the grade and volume you need and we&rsquo;ll come back with availability and technical data.
               </p>
@@ -123,6 +123,47 @@ function Page() {
                 Years refining
               </span>
             </div>
+          </div>
+        </div>
+      </section>
+      <section className="section section--alt">
+        <div className="container">
+          <div className="section-head section-head--center" data-reveal="">
+            <p className="eyebrow">Customer confidence</p>
+            <h2>Qualified into supply chains that cannot take chances</h2>
+            <p className="lead">
+              Battery, aerospace and pressure-critical customers audit a supplier before they buy a
+              tonne. These are the things they verify.
+            </p>
+          </div>
+          <div className="grid grid--3">
+            <div className="vcard" data-reveal="" data-reveal-delay="1">
+              <span className="vcard__num">01</span>
+              <h3>Lot-level certification</h3>
+              <p>Every production lot ships with a certificate of analysis giving the manganese assay
+                and the full trace-element profile.</p>
+            </div>
+            <div className="vcard" data-reveal="" data-reveal-delay="2">
+              <span className="vcard__num">02</span>
+              <h3>Open to audit</h3>
+              <p>Customer and third-party audit of the refinery and its quality system is a normal part
+                of qualification here, not an exception.</p>
+            </div>
+            <div className="vcard" data-reveal="" data-reveal-delay="3">
+              <span className="vcard__num">03</span>
+              <h3>Fifty years of the same process</h3>
+              <p>One metal, one site, since 1974. Consistency customers can build a process window
+                around rather than re-qualify each year.</p>
+            </div>
+          </div>
+          <div className="form__demo" style={{ maxWidth: '52rem', margin: '2rem auto 0' }}>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+              <circle cx="10" cy="10" r="8"></circle>
+              <path d="M10 9v5M10 6.2v.1"></path>
+            </svg>
+            <span><strong>Customer quotes pending.</strong> This block is built to hold named customer
+              testimonials &mdash; supply approved quotes and they drop straight in. Nothing here is
+              invented or attributed.</span>
           </div>
         </div>
       </section>
@@ -392,6 +433,81 @@ function Page() {
           </div>
         </div>
       </section>
+      <section className="section">
+        <div className="container">
+          <div className="section-head section-head--center" data-reveal="">
+            <p className="eyebrow">How we refine</p>
+            <h2>Five steps from ore to certified grade</h2>
+            <p className="lead">
+              The selenium-free electrolytic route, start to finish, on one site in Mbombela.
+            </p>
+          </div>
+          <div className="grid grid--4">
+            <div className="vcard" data-reveal="" data-reveal-delay="1">
+              <span className="vcard__num">01</span><h3>Leach</h3>
+              <p>Manganese is taken into solution, the first step in separating it from everything
+                that arrived with the ore.</p>
+            </div>
+            <div className="vcard" data-reveal="" data-reveal-delay="2">
+              <span className="vcard__num">02</span><h3>Purify</h3>
+              <p>The solution is purified to strip trace metals before it ever reaches the cellhouse.</p>
+            </div>
+            <div className="vcard" data-reveal="" data-reveal-delay="3">
+              <span className="vcard__num">03</span><h3>Electrowin</h3>
+              <p>Purified electrolyte feeds the cells and manganese deposits onto cathodes &mdash;
+                with no selenium additive at any point.</p>
+            </div>
+            <div className="vcard" data-reveal="" data-reveal-delay="4">
+              <span className="vcard__num">04</span><h3>Finish</h3>
+              <p>Cathodes are stripped and processed into flake, powder or briquette according to the
+                grade ordered.</p>
+            </div>
+            <div className="vcard" data-reveal="" data-reveal-delay="1">
+              <span className="vcard__num">05</span><h3>Certify &amp; despatch</h3>
+              <p>Each lot is analysed and certified, then packed for export to your handling
+                specification.</p>
+            </div>
+          </div>
+          <div className="btn-row" style={{ justifyContent: 'center' }} data-reveal="">
+            <Link to="/what-we-do/electrolytic-manganese-metal-emm-refinery" className="btn btn--ghost">
+              Inside the refinery
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                  <path d="M2 8h11M9 4l4 4-4 4"></path>
+                </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+      <section className="section section--alt">
+        <div className="container">
+          <div className="section-head section-head--center" data-reveal="">
+            <p className="eyebrow">Our operation in numbers</p>
+            <h2>Five decades, one refinery</h2>
+          </div>
+          <div className="stats">
+            <div className="stat" data-reveal="" data-reveal-delay="1">
+              <b data-count="1974">0</b>
+              <span>Refining since</span>
+            </div>
+            <div className="stat" data-reveal="" data-reveal-delay="2">
+              <b data-count="28000" data-suffix="t">0</b>
+              <span>Tonnes EMM capacity</span>
+            </div>
+            <div className="stat" data-reveal="" data-reveal-delay="3">
+              <b data-count="99.9" data-suffix="%" data-decimals="1">0</b>
+              <span>Manganese purity</span>
+            </div>
+            <div className="stat" data-reveal="" data-reveal-delay="4">
+              <b data-count="5">0</b>
+              <span>EMM grades produced</span>
+            </div>
+            <div className="stat" data-reveal="" data-reveal-delay="1">
+              <b data-count="20">0</b>
+              <span>Export destinations</span>
+            </div>
+          </div>
+        </div>
+      </section>
       <section className="section section--ink">
         <div className="container">
           <div className="section-head section-head--center" data-reveal="">
@@ -450,46 +566,54 @@ function Page() {
           </div>
         </div>
       </section>
-      <section className="section section--alt">
-        <div className="container">
+      <section className="section">
+        <div className="container container--narrow">
           <div className="section-head section-head--center" data-reveal="">
-            <p className="eyebrow">
-              Our operation in numbers
-            </p>
-            <h2></h2>
+            <p className="eyebrow">Common questions</p>
+            <h2>What buyers ask first</h2>
           </div>
-          <div className="stats">
-            <div className="stat" data-reveal="" data-reveal-delay="1">
-              <b data-count="1974">
-                0
-              </b>
-              <span>
-                Refining since
-              </span>
+          <div className="acc" data-reveal="">
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>How pure is MMC's manganese?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>Our electrolytic manganese metal assays at 99.9% manganese, with a tightly controlled trace-element profile certified for every production lot.</div></div>
             </div>
-            <div className="stat" data-reveal="" data-reveal-delay="2">
-              <b data-count="28000" data-suffix="t">
-                0
-              </b>
-              <span>
-                Tonnes EMM capacity
-              </span>
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>What does &ldquo;selenium-free&rdquo; actually mean?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>Conventional electrolytic manganese production uses selenium as a process additive, which leaves residual traces in the finished metal. We never introduce it, so there is none to remove downstream and none to declare.</div></div>
             </div>
-            <div className="stat" data-reveal="" data-reveal-delay="3">
-              <b data-count="5">
-                0
-              </b>
-              <span>
-                EMM grades produced
-              </span>
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>Which grades do you produce?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>Five: Low Hydrogen Flake (LH), Low Oxygen Flake (LO), Stabilised Powder (SP), Unstabilised Powder (UP) and Manganese Aluminium Briquettes (Mn/Al). All share the same assay; they differ in physical form and finishing.</div></div>
             </div>
-            <div className="stat" data-reveal="" data-reveal-delay="4">
-              <b data-count="20">
-                0
-              </b>
-              <span>
-                Export destinations
-              </span>
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>Do you supply battery-grade material?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>Yes. Our High Purity Manganese Sulphate Monohydrate is produced from our own 99.9% metal rather than from ore, starting at 6,000 tonnes per annum with a route to 30,000.</div></div>
+            </div>
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>Where do you ship?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>Twenty countries across four continents, from our single site in Mbombela, South Africa.</div></div>
+            </div>
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>What documentation comes with an order?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>A certificate of analysis per lot giving the manganese assay and trace-element profile, a selenium-free declaration, lot traceability and the export documentation for your destination.</div></div>
+            </div>
+            <div className="acc__item">
+              <button className="acc__head" aria-expanded="false">
+                <span>Can we audit the operation or request qualification samples?</span><span className="acc__icon"></span>
+              </button>
+              <div className="acc__panel"><div>Both. Customer and third-party audit is a normal part of qualification, and sample quantities for qualification programmes are arranged case by case.</div></div>
             </div>
           </div>
         </div>
