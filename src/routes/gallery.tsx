@@ -55,6 +55,21 @@ const SHOTS: Shot[] = [
   { src: 'social-csi.jpg', cat: 'Company', alt: 'Community programme supported by MMC near Mbombela' },
   { src: 'ownership.jpg', cat: 'Company', alt: 'MMC leadership at the Mbombela operation' },
   { src: 'contact.jpg', cat: 'Company', alt: 'The approach to the MMC offices at Mbombela' },
+  { src: 'chart-ev-forecast.png', cat: 'Process', alt: 'Forecast chart showing rising electric-vehicle battery demand for high-purity manganese' },
+  { src: 'chart-mnso4-upside.png', cat: 'Process', alt: 'Chart projecting demand growth for high-purity manganese sulphate in cathode material' },
+  { src: 'use-ev.jpg', cat: 'End use', tall: false, alt: 'Cutaway of an electric vehicle showing the battery pack that high-purity manganese feeds' },
+  { src: 'use-alloy.jpg', cat: 'End use', alt: 'Aircraft turbine engine, an application for vacuum-melted speciality alloys' },
+  { src: 'use-aluminium.jpg', cat: 'End use', alt: 'Aluminium can bodies drawn from manganese-bearing sheet' },
+  { src: 'use-welding.jpg', cat: 'End use', tall: true, alt: 'A welding arc, where low-hydrogen manganese consumables are used' },
+  { src: 'co-shareholding.png', cat: 'Company', alt: 'Shareholding diagram showing MM Holdings as sole owner of Manganese Metal Company' },
+  { src: 'esg-environmental.png', cat: 'Company', alt: 'Word cloud of MMC environmental themes: energy, carbon, waste and emissions' },
+  { src: 'esg-governance.png', cat: 'Company', alt: 'Word cloud of MMC governance themes: ethics, transparency and accountability' },
+  { src: 'esg-social.png', cat: 'Company', alt: 'Word cloud of MMC social themes: inclusion, diversity, labour rights and safety' },
+  { src: 'co-csi-1.jpg', cat: 'Company', alt: 'MMC team with a pedal-powered kart built for a community engineering challenge' },
+  { src: 'co-csi-2.jpg', cat: 'Company', tall: false, alt: 'Pedal-kart teams competing at a community event supported by MMC' },
+  { src: 'co-csi-3.jpg', cat: 'Company', alt: 'Students and MMC staff with a pedal kart at a schools engineering challenge' },
+  { src: 'co-uniform.jpg', cat: 'Company', alt: 'School pupils receiving donated items during an MMC-supported community drive' },
+  { src: 'co-team.jpg', cat: 'Company', tall: true, alt: 'MMC staff volunteering at a Child Welfare anniversary event' },
 ]
 
 const CATS = ['All', 'Refinery', 'Process', 'Grades', 'End use', 'Company']
@@ -73,7 +88,7 @@ function Page() {
             <p className="eyebrow">Gallery</p>
             <h1>The refinery, the metal, the end use</h1>
             <p className="hero__sub">
-              Twenty-four views of a single-site operation — from the cellhouse to the industries our
+              39 views of a single-site operation — from the cellhouse to the industries our
               manganese ends up in.
             </p>
           </div>
