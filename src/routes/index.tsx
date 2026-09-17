@@ -25,6 +25,7 @@ const GRADES = [
     why: 'Vacuum melting exists to keep contamination out. A controlled oxygen profile and no selenium means nothing volatile is introduced with the manganese unit.',
     form: 'Flake',
     sector: 'Superalloys, aerospace, medical',
+    img: 'grade-lo.jpg',
     to: '/services',
   },
   {
@@ -34,6 +35,7 @@ const GRADES = [
     why: 'Dissolved hydrogen carried in through a consumable is a recognised cause of cold cracking. LH flake is produced for low-hydrogen practice.',
     form: 'Flake',
     sector: 'Welding rod, cored wire',
+    img: 'grade-lh.jpg',
     to: '/services',
   },
   {
@@ -43,6 +45,7 @@ const GRADES = [
     why: 'Produced from our own 99.9% metal rather than from ore, so ore-borne impurity classes never enter the chemistry.',
     form: 'Crystalline sulphate',
     sector: 'Lithium-ion batteries',
+    img: 'mtx-plant.jpg',
     to: '/services',
   },
   {
@@ -52,6 +55,7 @@ const GRADES = [
     why: 'Compacted for controlled dissolution and high recovery, so can body stock hits its target chemistry predictably rather than probabilistically.',
     form: 'Briquette',
     sector: 'Beverage can body stock',
+    img: 'grade-mnal.jpg',
     to: '/services',
   },
   {
@@ -61,6 +65,7 @@ const GRADES = [
     why: 'Adds manganese without the residual elements that accompany a ferroalloy addition, giving precise control over final chemistry.',
     form: 'Flake',
     sector: 'Electrical and high-spec steels',
+    img: 'grade-lh.jpg',
     to: '/services',
   },
   {
@@ -70,6 +75,7 @@ const GRADES = [
     why: 'Surface-stabilised for safer handling and storage where the downstream process needs manganese delivered as a powder.',
     form: 'Powder',
     sector: 'Speciality alloys, chemical',
+    img: 'grade-sp.jpg',
     to: '/services',
   },
 ]
@@ -100,6 +106,10 @@ function GradePicker() {
         </div>
       </div>
       <div className="picker__out picker__out--anim" key={i} aria-live="polite">
+        <figure className="picker__shot" style={{ margin: 0 }}>
+          <img src={`/assets/img/${g.img}`} alt={`${g.grade} — the form this grade is supplied in`} loading="lazy" />
+          <figcaption>{g.code}</figcaption>
+        </figure>
         <p className="picker__code">Recommended grade &middot; {g.code}</p>
         <p className="picker__grade">{g.grade}</p>
         <p className="picker__why">{g.why}</p>
@@ -315,6 +325,10 @@ function Page() {
             <hr className="hair hair--plum" data-reveal="" />
             <p className="figure-xl">99.9<sup>%</sup></p>
             <p className="figure-xl__cap">Manganese, every lot, since 1974</p>
+            <figure className="band-img" data-reveal="" style={{ margin: '2rem 0 0' }}>
+              <img src="/assets/img/grade-lh.jpg" alt="Low hydrogen flake, the physical form 99.9% electrolytic manganese is supplied in" loading="lazy" />
+              <figcaption>Electrolytic manganese flake</figcaption>
+            </figure>
           </div>
           <div>
             <div className="assay">
@@ -397,9 +411,13 @@ function Page() {
           <p className="doc__rail"><b>04</b>Process</p>
           <div>
             <h2 className="doc__head">Ore to certified grade, in five steps</h2>
-            <p className="doc__lead" style={{ marginBottom: '2.5rem' }}>
+            <p className="doc__lead" style={{ marginBottom: '1.75rem' }}>
               The selenium-free electrolytic route, start to finish, on one site.
             </p>
+            <figure className="band-img" data-reveal="" style={{ margin: '0 0 2.5rem' }}>
+              <img src="/assets/img/selenium-free-process.jpg" alt="The selenium-free electrolytic refining route in operation at Mbombela" loading="lazy" />
+              <figcaption>Selenium-free route</figcaption>
+            </figure>
             <Deposition />
           </div>
         </div>
@@ -412,24 +430,29 @@ function Page() {
           <div>
             <h2 className="doc__head">Where the metal ends up</h2>
             <div className="picker__list" style={{ marginTop: '2rem' }}>
-              <Link to="/services" className="picker__opt picker__opt--desc">
+              <Link to="/services" className="picker__opt picker__opt--desc picker__opt--thumb">
                 <i>01</i>
+                <img className="thumb" src="/assets/img/market-batteries.jpg" alt="" loading="lazy" />
                 <span><strong>Lithium-ion batteries</strong><em>Manganese-rich cathode chemistry offers lower cost and better thermal margin — but only where the manganese unit is clean enough not to seed side reactions.</em></span>
               </Link>
-              <Link to="/services" className="picker__opt picker__opt--desc">
+              <Link to="/services" className="picker__opt picker__opt--desc picker__opt--thumb">
                 <i>02</i>
+                <img className="thumb" src="/assets/img/market-steel.jpg" alt="" loading="lazy" />
                 <span><strong>Steel</strong><em>Most manganese in steelmaking arrives as ferroalloy. High-purity metal is for the grades where the residual elements that come with it are not acceptable.</em></span>
               </Link>
-              <Link to="/services" className="picker__opt picker__opt--desc">
+              <Link to="/services" className="picker__opt picker__opt--desc picker__opt--thumb">
                 <i>03</i>
+                <img className="thumb" src="/assets/img/market-aluminium.jpg" alt="" loading="lazy" />
                 <span><strong>Aluminium</strong><em>Can body stock depends on manganese for the balance of strength and formability that lets a sheet be drawn thin at speed without tearing.</em></span>
               </Link>
-              <Link to="/services" className="picker__opt picker__opt--desc">
+              <Link to="/services" className="picker__opt picker__opt--desc picker__opt--thumb">
                 <i>04</i>
+                <img className="thumb" src="/assets/img/market-welding.jpg" alt="" loading="lazy" />
                 <span><strong>Welding rod &amp; cored wire</strong><em>A consumable carries its impurities straight into the weld pool, which makes purity a structural question in pipeline and pressure-vessel work.</em></span>
               </Link>
-              <Link to="/services" className="picker__opt picker__opt--desc">
+              <Link to="/services" className="picker__opt picker__opt--desc picker__opt--thumb">
                 <i>05</i>
+                <img className="thumb" src="/assets/img/market-alloys.jpg" alt="" loading="lazy" />
                 <span><strong>Speciality alloys</strong><em>Vacuum melting exists to keep contamination out. Feeding it a manganese unit carrying selenium defeats the point of the process.</em></span>
               </Link>
             </div>
@@ -463,6 +486,10 @@ function Page() {
               <div className="assay__row" data-reveal="" data-reveal-delay="2"><span className="assay__sym">05</span><span className="assay__name">EMM grades produced</span><span className="assay__val">flake, powder, briquette</span></div>
               <div className="assay__row" data-reveal="" data-reveal-delay="3"><span className="assay__sym">1974</span><span className="assay__name">Refining since</span><span className="assay__val">one site</span></div>
             </div>
+            <figure className="band-img" data-reveal="" style={{ margin: '1.75rem 0 0', aspectRatio: '4 / 3' }}>
+              <img src="/assets/img/site-aerial.jpg" alt="Aerial view of the Mbombela refinery that supplies all twenty countries" loading="lazy" />
+              <figcaption>Mbombela, South Africa</figcaption>
+            </figure>
           </div>
         </div>
       </section>

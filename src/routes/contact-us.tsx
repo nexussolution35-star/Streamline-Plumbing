@@ -305,6 +305,10 @@ function Page() {
               </div>
             </div>
           </div>
+          <figure className="band-img" data-reveal="" style={{ marginTop: '2.5rem' }}>
+            <img src="/assets/img/contact.jpg" alt="The approach to the Manganese Metal Company offices at Mbombela" loading="lazy" />
+            <figcaption>Fairbairn Street, Rocky Drift, Mbombela</figcaption>
+          </figure>
         </div>
       </section>
     </>

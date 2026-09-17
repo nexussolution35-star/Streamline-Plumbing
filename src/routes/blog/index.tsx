@@ -51,8 +51,8 @@ function Page() {
           <div>
             <div className="picker__list">
               {POSTS.map((p, i) => (
-                <Link key={p.slug} to={`/blog/${p.slug}`} className="picker__opt picker__opt--desc">
-                  <i>{String(i + 1).padStart(2, '0')}</i>
+                <Link key={p.slug} to={`/blog/${p.slug}`} className="picker__opt picker__opt--desc picker__opt--thumb">
+                  <img className="thumb" src={`/assets/img/${p.img}`} alt="" loading="lazy" />
                   <span><strong>{p.title}</strong><em>{p.standfirst}</em></span>
                 </Link>
               ))}

@@ -648,3 +648,53 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(
 .picker__opt--desc em{display:block;font-style:normal;font-family:var(--font-body);font-weight:400;
   font-size:var(--fs-sm);line-height:1.55;color:var(--ink-500);max-width:58ch}
 .picker__opt--desc:hover em{color:var(--ink-700)}
+
+/* --- imagery inside document rows ---------------------------------------- */
+/* thumbnail sitting in an index row or a spec row */
+.thumb{flex:none;width:62px;height:62px;object-fit:cover;background:var(--steel-050);
+  filter:saturate(.9);transition:filter .4s var(--ease),transform .6s var(--ease)}
+.picker__opt:hover .thumb,.assay__row:hover .thumb{filter:saturate(1);transform:scale(1.03)}
+.picker__opt--thumb{align-items:center;gap:var(--s4)}
+@media(min-width:620px){.thumb{width:84px;height:84px}}
+.assay__row--thumb{grid-template-columns:84px 4.6rem 1fr auto;align-items:center}
+@media(max-width:619px){
+  .assay__row--thumb{grid-template-columns:62px 1fr;row-gap:.4rem}
+  .assay__row--thumb .assay__val{grid-column:2}
+}
+/* the grade selector's result image */
+.picker__shot{position:relative;overflow:hidden;aspect-ratio:16/10;background:var(--steel-050);
+  margin-bottom:var(--s5)}
+.picker__shot img{width:100%;height:100%;object-fit:cover;animation:pickIn .5s var(--ease)}
+.picker__shot figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;
+  font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.14em;
+  text-transform:uppercase;padding:.5rem .85rem}
+/* a wide plate-crop band inside a document section */
+.band-img{position:relative;overflow:hidden;aspect-ratio:21/9;background:var(--steel-050);margin-top:var(--s6)}
+.band-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);
+  transition:transform 1.6s var(--ease)}
+.band-img.is-in img{transform:scale(1)}
+.band-img figcaption{position:absolute;left:0;bottom:0;background:var(--ink);color:#fff;
+  font-family:var(--font-mono);font-size:var(--fs-xs);letter-spacing:.14em;
+  text-transform:uppercase;padding:.5rem .85rem}
+/* inline article figure */
+.art-fig{margin:var(--s6) 0;position:relative;overflow:hidden}
+.art-fig img{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--steel-050)}
+.art-fig figcaption{font-family:var(--font-mono);font-size:var(--fs-xs);color:var(--steel-600);
+  padding-top:.6rem;line-height:1.5}
+
+/* Grid children default to min-width:auto and refuse to shrink below their
+   content, which pushes narrow viewports into horizontal overflow. */
+.doc__grid > *,
+.assay__row > *,
+.dep__step > *,
+.picker > *,
+.picker__opt > span,
+.slab > *{min-width:0}
+.assay__row > .assay__name,
+.dep__step p,
+.picker__opt em{overflow-wrap:anywhere}
+/* the markets rows use an inline template on desktop; keep them sane narrow */
+@media(max-width:619px){
+  .dep__step[style]{grid-template-columns:62px 1fr!important;gap:var(--s3)!important}
+  .thumb{width:62px;height:62px}
+}

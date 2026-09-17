@@ -53,6 +53,10 @@ function Page() {
               Selenium is the conventional shortcut in electrolytic manganese production. It is also a
               contaminant that travels with the metal into whatever the customer does next.
             </p>
+            <figure className="art-fig" data-reveal="">
+              <img src="/assets/img/selenium-free-process.jpg" alt="The selenium-free electrolytic route used at Mbombela." loading="lazy" />
+              <figcaption>The selenium-free electrolytic route used at Mbombela.</figcaption>
+            </figure>
             <hr className="hair" data-reveal="" />
             <h2>Why it is used at all</h2>
             <p>

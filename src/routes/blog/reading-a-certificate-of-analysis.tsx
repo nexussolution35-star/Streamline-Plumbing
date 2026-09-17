@@ -54,6 +54,10 @@ function Page() {
               marketing claim is the assay; the certificate is the evidence. Here is what each part of
               it is telling you.
             </p>
+            <figure className="art-fig" data-reveal="">
+              <img src="/assets/img/grade-lo.jpg" alt="Every lot is analysed and certified before it is packed for export." loading="lazy" />
+              <figcaption>Every lot is analysed and certified before it is packed for export.</figcaption>
+            </figure>
             <hr className="hair" data-reveal="" />
             <h2>What the document is for</h2>
             <p>

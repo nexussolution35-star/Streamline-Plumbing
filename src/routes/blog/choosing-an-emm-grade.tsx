@@ -54,6 +54,10 @@ function Page() {
               selenium-free origin. What separates them is physical form &mdash; and form is decided by
               your process, not by preference.
             </p>
+            <figure className="art-fig" data-reveal="">
+              <img src="/assets/img/grade-mnal.jpg" alt="Manganese aluminium briquettes — one of five physical forms MMC supplies." loading="lazy" />
+              <figcaption>Manganese aluminium briquettes — one of five physical forms MMC supplies.</figcaption>
+            </figure>
             <hr className="hair" data-reveal="" />
             <h2>Form is a process decision</h2>
             <p>

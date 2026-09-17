@@ -1,5 +1,5 @@
 /** Blog index. Bodies are deliberate placeholders - see /blog for the notice. */
-export type Post = { slug: string; title: string; standfirst: string; rail: string }
+export type Post = { slug: string; title: string; standfirst: string; rail: string; img: string }
 
 export const POSTS: Post[] = [
   {
@@ -8,6 +8,7 @@ export const POSTS: Post[] = [
     standfirst:
       'What the assay, the trace-element profile and the lot number actually tell you before you qualify a supplier.',
     rail: 'Quality',
+    img: 'grade-lo.jpg',
   },
   {
     slug: 'choosing-an-emm-grade',
@@ -15,6 +16,7 @@ export const POSTS: Post[] = [
     standfirst:
       'Physical form is process-specific. A short guide to matching the grade to how the manganese enters your melt.',
     rail: 'Grades',
+    img: 'grade-mnal.jpg',
   },
   {
     slug: 'why-selenium-free-matters',
@@ -22,5 +24,6 @@ export const POSTS: Post[] = [
     standfirst:
       'Where a residual process additive shows up later — in battery chemistry, vacuum melting and precision welding.',
     rail: 'Process',
+    img: 'selenium-free-process.jpg',
   },
 ]

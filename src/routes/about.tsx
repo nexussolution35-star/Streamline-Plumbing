@@ -82,6 +82,10 @@ function Page() {
             </div>
           </div>
           <div>
+            <figure className="band-img" data-reveal="" style={{ margin: '0 0 1.75rem', aspectRatio: '4 / 3' }}>
+              <img src="/assets/img/operations.jpg" alt="Refinery operations on the plant floor at Mbombela" loading="lazy" />
+              <figcaption>Inside the refinery</figcaption>
+            </figure>
             <div className="assay">
               <div className="assay__row" data-reveal=""><span className="assay__sym">1974</span><span className="assay__name">Refining since</span><span className="assay__val">one site</span></div>
               <div className="assay__row" data-reveal="" data-reveal-delay="1"><span className="assay__sym">28k</span><span className="assay__name">Tonnes EMM capacity</span><span className="assay__val">per annum</span></div>
@@ -131,6 +135,10 @@ function Page() {
                 </div>
               ))}
             </div>
+            <figure className="band-img" data-reveal="" style={{ marginTop: '2rem' }}>
+              <img src="/assets/img/hero-refinery.jpg" alt="The electrolytic cellhouse that has run at Mbombela since 1974" loading="lazy" />
+              <figcaption>The cellhouse</figcaption>
+            </figure>
             <p className="assay__foot" style={{ color: 'var(--steel-600)' }}>
               Milestone years beyond 1974 are indicative and pending confirmation by the company.
             </p>
@@ -154,6 +162,10 @@ function Page() {
             </div>
           </div>
           <div>
+            <figure className="band-img" data-reveal="" style={{ margin: '0 0 1.75rem', aspectRatio: '4 / 3' }}>
+              <img src="/assets/img/market-batteries.jpg" alt="Lithium-ion cells, one of the energy-transition uses MMC manganese supports" loading="lazy" />
+              <figcaption>Why it matters</figcaption>
+            </figure>
             <div className="assay">
               {STANDARDS.map(([t, d], i) => (
                 <div className="assay__row" data-reveal="" data-reveal-delay={String(i)} key={t}

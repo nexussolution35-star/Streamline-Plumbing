@@ -28,12 +28,12 @@ export const Route = createFileRoute('/services')({
   component: Page,
 })
 
-const GRADES: [string, string, string, string][] = [
-  ['Low Hydrogen Flake', 'LH', 'Flake', 'Welding consumables and speciality alloys, where dissolved hydrogen would compromise the weld or the melt.'],
-  ['Low Oxygen Flake', 'LO', 'Flake', 'Vacuum-melted and high-integrity alloy production, where the oxygen profile is the controlling variable.'],
-  ['Stabilised Powder', 'SP', 'Powder', 'Powder-fed processes needing a surface-stabilised material for safer handling and storage.'],
-  ['Unstabilised Powder', 'UP', 'Powder', 'Processes that require an untreated surface on the manganese unit.'],
-  ['Manganese Aluminium Briquettes', 'Mn/Al', 'Briquette', 'Controlled, high-recovery addition into aluminium melts — notably can body stock.'],
+const GRADES: [string, string, string, string, string][] = [
+  ['Low Hydrogen Flake', 'LH', 'Flake', 'Welding consumables and speciality alloys, where dissolved hydrogen would compromise the weld or the melt.', 'grade-lh.jpg'],
+  ['Low Oxygen Flake', 'LO', 'Flake', 'Vacuum-melted and high-integrity alloy production, where the oxygen profile is the controlling variable.', 'grade-lo.jpg'],
+  ['Stabilised Powder', 'SP', 'Powder', 'Powder-fed processes needing a surface-stabilised material for safer handling and storage.', 'grade-sp.jpg'],
+  ['Unstabilised Powder', 'UP', 'Powder', 'Processes that require an untreated surface on the manganese unit.', 'grade-up.jpg'],
+  ['Manganese Aluminium Briquettes', 'Mn/Al', 'Briquette', 'Controlled, high-recovery addition into aluminium melts — notably can body stock.', 'grade-mnal.jpg'],
 ]
 
 const MARKETS: [string, string, string][] = [
@@ -74,9 +74,9 @@ function Page() {
             </p>
             <hr className="hair hair--plum" data-reveal="" />
             <div className="assay">
-              {GRADES.map(([name, code, form, use], i) => (
-                <div className="assay__row" data-reveal="" data-reveal-delay={String(i % 4)} key={code + name}
-                     style={{ gridTemplateColumns: '5.5rem 1fr auto' }}>
+              {GRADES.map(([name, code, form, use, img], i) => (
+                <div className="assay__row assay__row--thumb" data-reveal="" data-reveal-delay={String(i % 4)} key={code + name}>
+                  <img className="thumb" src={`/assets/img/${img}`} alt={`${name} — ${form.toLowerCase()} form of 99.9% electrolytic manganese`} loading="lazy" />
                   <span className="assay__sym">{code}</span>
                   <span className="assay__name"><strong style={{ color: 'var(--ink)' }}>{name}</strong><br />{use}</span>
                   <span className="assay__val">{form}</span>
@@ -136,6 +136,10 @@ function Page() {
             </div>
           </div>
           <div>
+            <figure className="band-img" data-reveal="" style={{ margin: '0 0 1.75rem', aspectRatio: '4 / 3' }}>
+              <img src="/assets/img/process-combined.png" alt="Flowsheet of the combined manganese refining and sulphate operation at Mbombela" loading="lazy" />
+              <figcaption>Combined flowsheet</figcaption>
+            </figure>
             <div className="assay">
               {[['Leach', 'Manganese into solution'], ['Purify', 'Trace metals stripped'],
                 ['Electrowin', 'Deposition, selenium-free'], ['Finish', 'Flake, powder or briquette'],
@@ -158,8 +162,8 @@ function Page() {
             <h2 className="doc__head">Where the metal ends up</h2>
             <div className="slab" style={{ marginTop: '2.5rem', gridTemplateColumns: '1fr' }}>
               {MARKETS.map(([name, img, body], i) => (
-                <div className="dep__step" key={name} style={{ gridTemplateColumns: '3.2rem 1fr' }}>
-                  <b>{String(i + 1).padStart(2, '0')}</b>
+                <div className="dep__step" key={name} style={{ gridTemplateColumns: '84px 1fr', alignItems: 'center' }}>
+                  <img className="thumb" src={`/assets/img/${img}`} alt={`${name} — an end use for MMC high-purity manganese`} loading="lazy" />
                   <div><h3>{name}</h3><p>{body}</p></div>
                 </div>
               ))}
@@ -187,6 +191,10 @@ function Page() {
             </div>
           </div>
           <div>
+            <figure className="band-img" data-reveal="" style={{ margin: '0 0 1.75rem', aspectRatio: '4 / 3' }}>
+              <img src="/assets/img/operations.jpg" alt="Finished manganese being prepared for packing and export at Mbombela" loading="lazy" />
+              <figcaption>Packing &amp; despatch</figcaption>
+            </figure>
             <div className="assay">
               <div className="assay__row" data-reveal=""><span className="assay__sym">CoA</span><span className="assay__name">Certificate of analysis</span><span className="assay__val">every lot</span></div>
               <div className="assay__row" data-reveal="" data-reveal-delay="1"><span className="assay__sym">Se</span><span className="assay__name">Selenium declaration</span><span className="assay__val">absent</span></div>
