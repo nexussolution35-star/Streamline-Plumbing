@@ -116,12 +116,20 @@ function Page() {
             <hr className="hair" data-reveal="" />
             <div className="gal">
               {shown.map((s, i) => (
-                <figure className={`gal__item${s.tall ? ' gal__item--tall' : ''}`} key={s.src} data-reveal="" data-reveal-delay={String(i % 4)}>
-                  <img src={`/assets/img/${s.src}`} alt={s.alt} loading={i < 2 ? undefined : 'lazy'} />
-                  <figcaption>
-                    <i>{String(i + 1).padStart(2, '0')}</i>
-                    {s.alt}
-                  </figcaption>
+                <figure className={`gal__item${s.tall ? ' gal__item--tall' : ''}`} key={s.src}>
+                  <a
+                    className="gal__link"
+                    href={`/assets/img/${s.src}`}
+                    target="_blank"
+                    rel="noopener"
+                    aria-label={`View full size: ${s.alt}`}
+                  >
+                    <img src={`/assets/img/${s.src}`} alt={s.alt} loading={i < 2 ? undefined : 'lazy'} />
+                    <figcaption>
+                      <i>{String(i + 1).padStart(2, '0')}</i>
+                      {s.alt}
+                    </figcaption>
+                  </a>
                 </figure>
               ))}
             </div>

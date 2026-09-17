@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { pageHead, ld, SITE_URL, ORGANISATION } from '../site'
 
 export const Route = createFileRoute('/')({
@@ -140,40 +140,10 @@ const STEPS = [
   ['Certify & despatch', 'Each lot is analysed and certified, then packed for export to your handling specification.'],
 ]
 
-/** The cathode plate fills as the process section scrolls — deposition, literally. */
+/** The five refining steps, with a static cathode plate alongside. */
 function Deposition() {
-  const host = useRef<HTMLDivElement>(null)
-  const [pct, setPct] = useState(0)
-  useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { setPct(100); return }
-    let tick = false
-    const on = () => {
-      if (tick) return
-      tick = true
-      requestAnimationFrame(() => {
-        const el = host.current
-        if (el) {
-          const r = el.getBoundingClientRect()
-          const vh = window.innerHeight
-          // start once the block reaches 80% down the viewport, finish as its
-          // bottom clears 30% up - a smooth ramp across the section's travel
-          // travel is floored at 0.6vh so a short section still ramps smoothly
-          // instead of snapping from 0 to 100
-          const done = vh * 0.85 - r.top
-          const travel = Math.max(r.height - vh * 0.4, vh * 0.6)
-          const p = done / travel
-          setPct(Math.round(Math.min(Math.max(p, 0), 1) * 100))
-        }
-        tick = false
-      })
-    }
-    on()
-    window.addEventListener('scroll', on, { passive: true })
-    window.addEventListener('resize', on)
-    return () => { window.removeEventListener('scroll', on); window.removeEventListener('resize', on) }
-  }, [])
   return (
-    <div className="dep" ref={host}>
+    <div className="dep">
       <div className="dep__steps">
         {STEPS.map(([t, d], n) => (
           <div className="dep__step" key={t}>
@@ -183,11 +153,11 @@ function Deposition() {
         ))}
       </div>
       <div className="plate" aria-hidden="true">
-        <span className="plate__pct">{String(pct).padStart(3, '0')}%</span>
+        <span className="plate__pct">100%</span>
         {[20, 40, 60, 80].map((y) => (
           <span className="plate__tick" key={y} style={{ bottom: `${y}%` }} />
         ))}
-        <span className="plate__fill" style={{ height: `${pct}%` }}>
+        <span className="plate__fill" style={{ height: '100%' }}>
           <span className="plate__grain" />
         </span>
         <span className="plate__cap">Cathode deposition</span>
@@ -274,33 +244,25 @@ function Page() {
           </div>
           <div className="hero__stats">
             <div className="hero__stat">
-              <b data-count="99.9" data-suffix="%" data-decimals="1">
-                0
-              </b>
+              <b>99.9%</b>
               <span>
                 Manganese purity
               </span>
             </div>
             <div className="hero__stat">
-              <b data-count="28000" data-suffix="t">
-                0
-              </b>
+              <b>28 000t</b>
               <span>
                 Annual capacity
               </span>
             </div>
             <div className="hero__stat">
-              <b data-count="20">
-                0
-              </b>
+              <b>20</b>
               <span>
                 Countries served
               </span>
             </div>
             <div className="hero__stat">
-              <b data-count="50" data-suffix="+">
-                0
-              </b>
+              <b>50+</b>
               <span>
                 Years refining
               </span>

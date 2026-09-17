@@ -53,91 +53,10 @@ function useSiteBehaviours(pathname: string) {
     return () => window.removeEventListener('scroll', apply)
   }, [])
 
-  // reveal-on-scroll, parallax, count-up, accordions, demo forms, year stamp
+  // accordions, demo forms and the year stamp. No scroll effects, no parallax,
+  // no count-up: figures are rendered at their final value in the markup.
   useEffect(() => {
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const cleanups: Array<() => void> = []
-
-    const targets = document.querySelectorAll<HTMLElement>('[data-reveal]')
-    if (!('IntersectionObserver' in window) || reduced) {
-      targets.forEach((t) => t.classList.add('is-in'))
-    } else {
-      const io = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((en) => {
-            if (en.isIntersecting) {
-              en.target.classList.add('is-in')
-              io.unobserve(en.target)
-            }
-          }),
-        { threshold: 0.12, rootMargin: '0px 0px -8% 0px' },
-      )
-      targets.forEach((t) => io.observe(t))
-      cleanups.push(() => io.disconnect())
-    }
-
-    const layers = document.querySelectorAll<HTMLElement>('.hero__media, .band__media')
-    if (layers.length && !reduced) {
-      let ticking = false
-      const frame = () => {
-        layers.forEach((el) => {
-          const host = el.parentElement
-          if (!host) return
-          const r = host.getBoundingClientRect()
-          if (r.bottom < -200 || r.top > window.innerHeight + 200) return
-          const progress = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight
-          el.style.transform = `translate3d(0,${(progress * -52).toFixed(2)}px,0)`
-        })
-        ticking = false
-      }
-      const onScroll = () => {
-        if (!ticking) {
-          ticking = true
-          window.requestAnimationFrame(frame)
-        }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true })
-      frame()
-      cleanups.push(() => window.removeEventListener('scroll', onScroll))
-    }
-
-    const nums = document.querySelectorAll<HTMLElement>('[data-count]')
-    if (nums.length && 'IntersectionObserver' in window && !reduced) {
-      const cio = new IntersectionObserver(
-        (entries) =>
-          entries.forEach((en) => {
-            if (!en.isIntersecting) return
-            const el = en.target as HTMLElement
-            const end = parseFloat(el.dataset.count || '0')
-            const pre = el.dataset.prefix || ''
-            const suf = el.dataset.suffix || ''
-            const dec = parseInt(el.dataset.decimals || '0', 10)
-            let t0: number | null = null
-            const step = (ts: number) => {
-              if (!t0) t0 = ts
-              const p = Math.min((ts - t0) / 1600, 1)
-              const eased = 1 - Math.pow(1 - p, 3)
-              el.textContent =
-                pre + (end * eased).toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') + suf
-              if (p < 1) requestAnimationFrame(step)
-            }
-            requestAnimationFrame(step)
-            cio.unobserve(el)
-          }),
-        { threshold: 0.5 },
-      )
-      nums.forEach((n) => cio.observe(n))
-      cleanups.push(() => cio.disconnect())
-    } else {
-      nums.forEach((el) => {
-        const end = parseFloat(el.dataset.count || '0')
-        const dec = parseInt(el.dataset.decimals || '0', 10)
-        el.textContent =
-          (el.dataset.prefix || '') +
-          end.toFixed(dec).replace(/\B(?=(\d{3})+(?!\d))/g, ' ') +
-          (el.dataset.suffix || '')
-      })
-    }
 
     const onAcc = (e: Event) => {
       const head = (e.target as HTMLElement).closest<HTMLElement>('.acc__head')

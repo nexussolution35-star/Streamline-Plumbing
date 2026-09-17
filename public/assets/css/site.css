@@ -698,3 +698,45 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(
   .dep__step[style]{grid-template-columns:62px 1fr!important;gap:var(--s3)!important}
   .thumb{width:62px;height:62px}
 }
+
+/* ==========================================================================
+   MOTION REMOVED — content is shown in its final state, no scroll effects
+   ========================================================================== */
+*,*::before,*::after{animation:none!important;transition:none!important}
+
+/* elements that were hidden until a scroll observer revealed them */
+[data-reveal]{opacity:1!important;transform:none!important}
+.assay__row{opacity:1!important;transform:none!important}
+.hair{transform:none!important}
+.lines span{overflow:visible}
+.lines span>i{transform:none!important}
+
+/* parallax layers and image scale-ins sit still */
+.hero__media,.band__media{transform:none!important}
+.slab__img img,.band-img img,.picker__shot img,.gal__item img,
+.card__media img,.thumb,.figure img{transform:none!important}
+
+/* hover lifts removed; colour and border feedback kept as affordance */
+.btn:hover,.card:hover,.vcard:hover,.tile:hover,.dl__item:hover,
+.country:hover,.gal__item:hover img,.picker__opt:hover{transform:none!important}
+.btn:hover svg,.card:hover .card__link svg{transform:none!important}
+.picker__opt:hover,.picker__opt[aria-selected="true"]{padding-left:.25rem}
+
+/* ==========================================================================
+   CLICK TARGETS — whole blocks are clickable, reachable from any direction
+   ========================================================================== */
+/* the dropdown used to float 12px below its trigger; crossing that gap fired
+   mouseleave and shut the menu before the pointer arrived. The panel now
+   starts flush and carries the offset as its own padding, so the pointer
+   never leaves the item. */
+.nav__item--has-panel{position:relative}
+.nav__panel{top:100%;padding-top:calc(var(--s3) + 12px)}
+.nav__item--has-panel::after{content:"";position:absolute;left:0;right:0;top:100%;height:14px}
+
+/* index rows: the entire row is the target, including padding and thumbnail */
+.picker__opt{width:100%;box-sizing:border-box}
+a.picker__opt,button.picker__opt{cursor:pointer}
+
+/* gallery tiles are fully clickable */
+.gal__link{display:block;color:inherit;text-decoration:none}
+.gal__link:focus-visible{outline:3px solid var(--plum-400);outline-offset:3px}
