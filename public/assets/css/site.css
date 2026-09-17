@@ -630,12 +630,12 @@ td.num{font-family:var(--font-mono);font-variant-numeric:tabular-nums;color:var(
 .gal__filter:hover{border-color:var(--plum-400);color:var(--plum-700)}
 .gal__filter[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
 .gal__filter[aria-pressed="true"] span{color:var(--plum-200)}
-.gal{display:grid;gap:var(--s4);grid-template-columns:repeat(2,1fr)}
+.gal{display:grid;gap:var(--s4);grid-template-columns:repeat(2,1fr);align-items:start}
 @media(min-width:760px){.gal{grid-template-columns:repeat(3,1fr);gap:var(--s5)}}
 .gal__item{margin:0;position:relative}
 .gal__item img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;background:var(--steel-050);
   transition:transform 1s var(--ease),filter .5s var(--ease);filter:saturate(.92)}
-.gal__item--tall img{aspect-ratio:3/4}
+/* every tile shares one crop so the images are all the same size */
 .gal__item:hover img{transform:scale(1.03);filter:saturate(1)}
 .gal__item figcaption{display:flex;gap:.6rem;font-family:var(--font-mono);font-size:.625rem;
   letter-spacing:.06em;color:var(--steel-600);line-height:1.5;padding-top:.6rem}

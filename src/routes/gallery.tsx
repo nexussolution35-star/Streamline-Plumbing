@@ -28,25 +28,25 @@ export const Route = createFileRoute('/gallery')({
   component: Page,
 })
 
-type Shot = { src: string; alt: string; cat: string; tall?: boolean }
+type Shot = { src: string; alt: string; cat: string }
 
 const SHOTS: Shot[] = [
-  { src: 'hero-refinery.jpg', cat: 'Refinery', tall: true, alt: 'Electrolyte cells in the manganese refinery at Mbombela' },
+  { src: 'hero-refinery.jpg', cat: 'Refinery', alt: 'Electrolyte cells in the manganese refinery at Mbombela' },
   { src: 'plant-wide.jpg', cat: 'Refinery', alt: 'Wide view across the MMC refinery plant' },
   { src: 'operations.jpg', cat: 'Refinery', alt: 'Refinery operations underway on the plant floor' },
-  { src: 'mtx-plant.jpg', cat: 'Refinery', tall: true, alt: 'The high purity manganese sulphate plant alongside the refinery' },
+  { src: 'mtx-plant.jpg', cat: 'Refinery', alt: 'The high purity manganese sulphate plant alongside the refinery' },
   { src: 'site-aerial.jpg', cat: 'Refinery', alt: 'Aerial view of the MMC site and surrounding land at Mbombela' },
   { src: 'selenium-free-process.jpg', cat: 'Process', alt: 'The selenium-free electrolytic refining process' },
   { src: 'process-combined.png', cat: 'Process', alt: 'Diagram of the combined manganese flowsheet at Mbombela' },
   { src: 'hpmsm-flow.png', cat: 'Process', alt: 'Process flow diagram for the HP MSM plant' },
   { src: 'cam-routes.png', cat: 'Process', alt: 'Routes for introducing manganese into cathode active material' },
-  { src: 'grade-lh.jpg', cat: 'Grades', tall: true, alt: 'Low Hydrogen Flake, one of five electrolytic manganese grades' },
+  { src: 'grade-lh.jpg', cat: 'Grades', alt: 'Low Hydrogen Flake, one of five electrolytic manganese grades' },
   { src: 'grade-lo.jpg', cat: 'Grades', alt: 'Low Oxygen Flake electrolytic manganese metal' },
   { src: 'grade-sp.jpg', cat: 'Grades', alt: 'Stabilised Powder electrolytic manganese metal' },
   { src: 'grade-up.jpg', cat: 'Grades', alt: 'Unstabilised Powder electrolytic manganese metal' },
-  { src: 'grade-mnal.jpg', cat: 'Grades', tall: true, alt: 'Manganese aluminium briquettes for melt addition' },
+  { src: 'grade-mnal.jpg', cat: 'Grades', alt: 'Manganese aluminium briquettes for melt addition' },
   { src: 'market-batteries.jpg', cat: 'End use', alt: 'Lithium-ion battery cells, an end use for high purity manganese' },
-  { src: 'market-steel.jpg', cat: 'End use', tall: true, alt: 'Steel production, where manganese is used for alloying and deoxidation' },
+  { src: 'market-steel.jpg', cat: 'End use', alt: 'Steel production, where manganese is used for alloying and deoxidation' },
   { src: 'steel-rolls.jpg', cat: 'End use', alt: 'Rolled steel coil produced with manganese additions' },
   { src: 'market-aluminium.jpg', cat: 'End use', alt: 'Aluminium beverage cans drawn from manganese-bearing body stock' },
   { src: 'market-welding.jpg', cat: 'End use', alt: 'Welding in progress using manganese-bearing consumables' },
@@ -57,19 +57,19 @@ const SHOTS: Shot[] = [
   { src: 'contact.jpg', cat: 'Company', alt: 'The approach to the MMC offices at Mbombela' },
   { src: 'chart-ev-forecast.png', cat: 'Process', alt: 'Forecast chart showing rising electric-vehicle battery demand for high-purity manganese' },
   { src: 'chart-mnso4-upside.png', cat: 'Process', alt: 'Chart projecting demand growth for high-purity manganese sulphate in cathode material' },
-  { src: 'use-ev.jpg', cat: 'End use', tall: false, alt: 'Cutaway of an electric vehicle showing the battery pack that high-purity manganese feeds' },
+  { src: 'use-ev.jpg', cat: 'End use', alt: 'Cutaway of an electric vehicle showing the battery pack that high-purity manganese feeds' },
   { src: 'use-alloy.jpg', cat: 'End use', alt: 'Aircraft turbine engine, an application for vacuum-melted speciality alloys' },
   { src: 'use-aluminium.jpg', cat: 'End use', alt: 'Aluminium can bodies drawn from manganese-bearing sheet' },
-  { src: 'use-welding.jpg', cat: 'End use', tall: true, alt: 'A welding arc, where low-hydrogen manganese consumables are used' },
+  { src: 'use-welding.jpg', cat: 'End use', alt: 'A welding arc, where low-hydrogen manganese consumables are used' },
   { src: 'co-shareholding.png', cat: 'Company', alt: 'Shareholding diagram showing MM Holdings as sole owner of Manganese Metal Company' },
   { src: 'esg-environmental.png', cat: 'Company', alt: 'Word cloud of MMC environmental themes: energy, carbon, waste and emissions' },
   { src: 'esg-governance.png', cat: 'Company', alt: 'Word cloud of MMC governance themes: ethics, transparency and accountability' },
   { src: 'esg-social.png', cat: 'Company', alt: 'Word cloud of MMC social themes: inclusion, diversity, labour rights and safety' },
   { src: 'co-csi-1.jpg', cat: 'Company', alt: 'MMC team with a pedal-powered kart built for a community engineering challenge' },
-  { src: 'co-csi-2.jpg', cat: 'Company', tall: false, alt: 'Pedal-kart teams competing at a community event supported by MMC' },
+  { src: 'co-csi-2.jpg', cat: 'Company', alt: 'Pedal-kart teams competing at a community event supported by MMC' },
   { src: 'co-csi-3.jpg', cat: 'Company', alt: 'Students and MMC staff with a pedal kart at a schools engineering challenge' },
   { src: 'co-uniform.jpg', cat: 'Company', alt: 'School pupils receiving donated items during an MMC-supported community drive' },
-  { src: 'co-team.jpg', cat: 'Company', tall: true, alt: 'MMC staff volunteering at a Child Welfare anniversary event' },
+  { src: 'co-team.jpg', cat: 'Company', alt: 'MMC staff volunteering at a Child Welfare anniversary event' },
 ]
 
 const CATS = ['All', 'Refinery', 'Process', 'Grades', 'End use', 'Company']
@@ -116,7 +116,7 @@ function Page() {
             <hr className="hair" data-reveal="" />
             <div className="gal">
               {shown.map((s, i) => (
-                <figure className={`gal__item${s.tall ? ' gal__item--tall' : ''}`} key={s.src}>
+                <figure className="gal__item" key={s.src}>
                   <a
                     className="gal__link"
                     href={`/assets/img/${s.src}`}
